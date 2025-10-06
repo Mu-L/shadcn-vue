@@ -14,7 +14,6 @@ defineProps<{
       'text-muted-foreground [&>a:hover]:text-primary text-sm/relaxed [&>a]:underline [&>a]:underline-offset-4',
       $attrs.class ?? '',
     )"
-    v-bind="$attrs"
   >
     <slot />
   </p>

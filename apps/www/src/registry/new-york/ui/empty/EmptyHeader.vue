@@ -14,7 +14,6 @@ const props = defineProps<{
       'flex max-w-sm flex-col items-center gap-2 text-center',
       props.class,
     )"
-    v-bind="$attrs"
   >
     <slot />
   </div>

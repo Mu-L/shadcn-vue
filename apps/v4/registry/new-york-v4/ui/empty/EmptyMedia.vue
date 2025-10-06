@@ -15,7 +15,6 @@ const props = defineProps<{
     data-slot="empty-icon"
     :data-variant="variant"
     :class="cn(emptyMediaVariants({ variant }), props.class)"
-    v-bind="$attrs"
   >
     <slot />
   </div>

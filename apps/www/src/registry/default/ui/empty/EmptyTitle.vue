@@ -11,7 +11,6 @@ const props = defineProps<{
   <div
     data-slot="empty-title"
     :class="cn('text-lg font-medium tracking-tight', props.class)"
-    v-bind="$attrs"
   >
     <slot />
   </div>
