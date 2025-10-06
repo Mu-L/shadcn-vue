@@ -1001,6 +1001,45 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "empty": {
+      name: "empty",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: [],
+      files: [{
+        path: "registry/new-york/ui/empty/Empty.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/empty/EmptyContent.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/empty/EmptyDescription.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/empty/EmptyHeader.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/empty/EmptyMedia.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/empty/EmptyTitle.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/empty/index.ts",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/ui/empty/Empty.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "form": {
       name: "form",
       description: "",
@@ -3853,6 +3892,81 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/new-york/examples/DropdownMenuRadioGroup.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyAvatarDemo": {
+      name: "EmptyAvatarDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","empty"],
+      files: [{
+        path: "registry/new-york/examples/EmptyAvatarDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/EmptyAvatarDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyAvatarGroupDemo": {
+      name: "EmptyAvatarGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","empty"],
+      files: [{
+        path: "registry/new-york/examples/EmptyAvatarGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/EmptyAvatarGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyBackgroundDemo": {
+      name: "EmptyBackgroundDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/new-york/examples/EmptyBackgroundDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/EmptyBackgroundDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyDemo": {
+      name: "EmptyDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/new-york/examples/EmptyDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/EmptyDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyOutlineDemo": {
+      name: "EmptyOutlineDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/new-york/examples/EmptyOutlineDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/EmptyOutlineDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7494,6 +7608,45 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "empty": {
+      name: "empty",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: [],
+      files: [{
+        path: "registry/default/ui/empty/Empty.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/empty/EmptyContent.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/empty/EmptyDescription.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/empty/EmptyHeader.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/empty/EmptyMedia.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/empty/EmptyTitle.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/empty/index.ts",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/default/ui/empty/Empty.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "form": {
       name: "form",
       description: "",
@@ -10346,6 +10499,81 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/DropdownMenuRadioGroup.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyAvatarDemo": {
+      name: "EmptyAvatarDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","empty"],
+      files: [{
+        path: "registry/default/examples/EmptyAvatarDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/EmptyAvatarDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyAvatarGroupDemo": {
+      name: "EmptyAvatarGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","empty"],
+      files: [{
+        path: "registry/default/examples/EmptyAvatarGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/EmptyAvatarGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyBackgroundDemo": {
+      name: "EmptyBackgroundDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/default/examples/EmptyBackgroundDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/EmptyBackgroundDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyDemo": {
+      name: "EmptyDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/default/examples/EmptyDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/EmptyDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "EmptyOutlineDemo": {
+      name: "EmptyOutlineDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/default/examples/EmptyOutlineDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/EmptyOutlineDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""

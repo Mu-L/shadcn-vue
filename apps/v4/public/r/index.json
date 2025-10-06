@@ -948,6 +948,42 @@
     ]
   },
   {
+    "name": "empty",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "ui/empty/Empty.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/empty/EmptyContent.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/empty/EmptyDescription.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/empty/EmptyHeader.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/empty/EmptyMedia.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/empty/EmptyTitle.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/empty/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "form",
     "type": "registry:ui",
     "dependencies": [
@@ -1042,9 +1078,7 @@
   {
     "name": "input-group",
     "type": "registry:ui",
-    "dependencies": [
-      "@vueuse/core"
-    ],
+    "dependencies": [],
     "registryDependencies": [],
     "files": [
       {

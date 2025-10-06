@@ -950,6 +950,45 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"empty": {
+  name: "empty",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: [],
+  files: [{
+    path: "registry/new-york-v4/ui/empty/Empty.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/empty/EmptyContent.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/empty/EmptyDescription.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/empty/EmptyHeader.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/empty/EmptyMedia.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/empty/EmptyTitle.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/empty/index.ts",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/empty/Empty.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "form": {
   name: "form",
   description: "",

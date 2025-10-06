@@ -1,9 +1,7 @@
 {
   "name": "input-group",
   "type": "registry:ui",
-  "dependencies": [
-    "@vueuse/core"
-  ],
+  "dependencies": [],
   "registryDependencies": [],
   "files": [
     {
@@ -20,13 +18,13 @@
     },
     {
       "path": "ui/input-group/InputGroupButton.vue",
-      "content": "<script lang='ts' setup>\nimport type { InputGroupButtonProps } from \".\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { cn } from \"@/lib/utils\"\nimport { inputGroupButtonVariants } from \".\"\nimport Button from \"../button/Button.vue\"\n\nconst props = withDefaults(defineProps<InputGroupButtonProps>(), {\n  size: \"xs\",\n  variant: \"ghost\",\n})\nconst delegatedProps = reactiveOmit(props, \"size\")\n</script>\n\n<template>\n  <Button\n    v-bind=\"$attrs\"\n    :data-size=\"props.size\"\n    :variant=\"props.variant\"\n    :class=\"cn(inputGroupButtonVariants({ size: props.size }), props.class)\"\n  >\n    <slot />\n  </Button>\n</template>\n",
+      "content": "<script lang='ts' setup>\nimport type { InputGroupButtonProps } from \".\"\nimport { cn } from \"@/lib/utils\"\nimport { inputGroupButtonVariants } from \".\"\nimport Button from \"../button/Button.vue\"\n\nconst props = withDefaults(defineProps<InputGroupButtonProps>(), {\n  size: \"xs\",\n  variant: \"ghost\",\n})\n</script>\n\n<template>\n  <Button\n    :data-size=\"props.size\"\n    :variant=\"props.variant\"\n    :class=\"cn(inputGroupButtonVariants({ size: props.size }), props.class)\"\n  >\n    <slot />\n  </Button>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/input-group/InputGroupInput.vue",
-      "content": "<script lang='ts' setup>\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { Input } from \"../input\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <Input\n    data-slot=\"input-group-control\"\n    v-bind=\"$attrs\"\n    :class=\"cn(\n      'flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 dark:bg-transparent',\n      props.class,\n    )\"\n  />\n</template>\n",
+      "content": "<script lang='ts' setup>\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { Input } from \"../input\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <Input\n    data-slot=\"input-group-control\"\n    :class=\"cn(\n      'flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 dark:bg-transparent',\n      props.class,\n    )\"\n  />\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
@@ -38,7 +36,7 @@
     },
     {
       "path": "ui/input-group/InputGroupTextarea.vue",
-      "content": "<script lang='ts' setup>\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { Textarea } from \"../textarea\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <Textarea\n    v-bind=\"$attrs\"\n    data-slot=\"input-group-control\"\n    :class=\"cn(\n      'flex-1 resize-none rounded-none border-0 bg-transparent py-3 shadow-none focus-visible:ring-0 dark:bg-transparent',\n      props.class,\n    )\"\n  />\n</template>\n",
+      "content": "<script lang='ts' setup>\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { Textarea } from \"../textarea\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <Textarea\n    data-slot=\"input-group-control\"\n    :class=\"cn(\n      'flex-1 resize-none rounded-none border-0 bg-transparent py-3 shadow-none focus-visible:ring-0 dark:bg-transparent',\n      props.class,\n    )\"\n  />\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
