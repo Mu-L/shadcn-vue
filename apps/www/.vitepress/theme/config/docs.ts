@@ -267,6 +267,10 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Empty',
+          href: '/docs/components/empty',
+        },
+        {
           title: 'Dropdown Menu',
           href: '/docs/components/dropdown-menu',
         },
