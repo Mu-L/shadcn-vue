@@ -269,6 +269,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Empty',
           href: '/docs/components/empty',
+          label: 'New',
         },
         {
           title: 'Dropdown Menu',
@@ -289,6 +290,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Input Group',
           href: '/docs/components/input-group',
+          label: 'New',
         },
         {
           title: 'Kbd',
