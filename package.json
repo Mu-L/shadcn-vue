@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "pnpm --filter v4 dev",
-    "build:v4": "pnpm --filter v4 build",
+    "build": "pnpm --filter v4 build",
     "preview": "pnpm --filter v4 preview",
     "prepare": "pnpm simple-git-hooks && pnpm --filter shadcn-vue build",
     "lint": "eslint .",
