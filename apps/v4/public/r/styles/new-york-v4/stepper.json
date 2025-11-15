@@ -29,7 +29,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/stepper/StepperSeparator.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { StepperSeparatorProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { StepperSeparator, useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<StepperSeparatorProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <StepperSeparator\n    v-bind=\"forwarded\"\n    :class=\"cn(\n      'bg-muted',\n      // Disabled\n      'group-data-[disabled]:bg-muted group-data-[disabled]:opacity-50',\n      // Completed\n      'group-data-[state=completed]:bg-accent-foreground',\n      props.class,\n    )\"\n  />\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { StepperSeparatorProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { StepperSeparator, useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<StepperSeparatorProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <StepperSeparator\n    v-bind=\"forwarded\"\n    :class=\"cn(\n      'bg-muted',\n      // Disabled\n      'group-data-[disabled]:bg-muted group-data-[disabled]:opacity-50',\n      // Completed\n      'group-data-[state=completed]:bg-accent',\n      props.class,\n    )\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {
