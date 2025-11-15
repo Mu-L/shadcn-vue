@@ -5,6 +5,7 @@ import path, { resolve } from 'node:path'
 import { rimraf } from 'rimraf'
 import { getAllBlocks } from '@/lib/blocks'
 import { registry } from '@/registry/index'
+import { ui } from '@/registry/registry-ui'
 import { crawlBlock, crawlUI } from './crawl-content'
 
 async function writeFile(path: string, payload: any) {
@@ -216,6 +217,16 @@ async function buildRegistry() {
 //   }
 // }
 
+async function buildPublicIndex() {
+  rimraf.sync(path.join(process.cwd(), 'public/r/index.json'))
+  await fs.writeFile(
+    path.join(process.cwd(), 'public/r/index.json'),
+    JSON.stringify(ui, null, 2),
+  )
+
+  await exec(`eslint --fix public/r/index.json`)
+}
+
 async function buildBlocksIndex() {
   const blocks = await getAllBlocks(['registry:block'])
 
@@ -250,6 +261,9 @@ try {
 
   console.log('🏗️ Building registry...')
   await buildRegistry()
+
+  console.log('🗂️ Building public/r/index.json...')
+  await buildPublicIndex()
 
   if (existsSync(path.join(process.cwd(), `registry-new-york-v4.json`))) {
     await fs.unlink(path.join(process.cwd(), `registry-new-york-v4.json`))
