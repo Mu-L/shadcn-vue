@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { fixImport } from '~/lib/registry-utils'
 import { cn } from '~/lib/utils'
 import { getIconForLanguageExtension } from './Icons'
 
@@ -16,7 +17,7 @@ const props = withDefaults(defineProps<{
   collapsible: true,
 })
 
-const code = (await import(`@/components/demo/${props.name}.${props.language}?raw`)).default
+const code = fixImport((await import(`@/components/demo/${props.name}.${props.language}?raw`)).default)
 </script>
 
 <template>
