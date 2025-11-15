@@ -16,49 +16,11 @@ description: A date picker component.
 
 ## Installation
 
-::code-tabs
+The Date Picker is built using a composition of the `<Popover />` and the `<Calendar />` components.
 
-::tabs-list
+See installation instructions for the [Popover](/docs/components/popover) and the [Calendar](/docs/components/calendar) components.
 
-  ::tabs-trigger{value="cli"}
-  CLI
-  ::
 
-  ::tabs-trigger{value="manual"}
-  Manual
-  ::
-
-::
-
-::tabs-content{value="cli"}
-
-```bash
-npx shadcn-vue@latest add date-picker
-```
-
-::
-
-::tabs-content{value="manual"}
-  ::steps
-    ::step
-    Install the following dependencies:
-    ::
-
-    ```bash
-    npm install reka-ui
-    ```
-
-    ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/date-picker) into your project.
-    ::
-
-    ::step
-    Update the import paths to match your project setup.
-    ::
-  ::
-::
-
-::
 
 ## Usage
 
@@ -66,6 +28,7 @@ npx shadcn-vue@latest add date-picker
 <script setup lang="ts">
 import { ref } from 'vue'
 import { CalendarIcon } from 'lucide-vue-next'
+import { DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
@@ -76,6 +39,7 @@ import {
 } from '@/components/ui/popover'
 
 const date = ref<Date>()
+const defaultPlaceholder = today(getLocalTimeZone())
 </script>
 
 <template>
@@ -93,7 +57,12 @@ const date = ref<Date>()
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-auto p-0">
-      <Calendar v-model="date" :initial-focus="true" />
+      <Calendar
+        v-model="date"
+        :initial-focus="true"
+        :default-placeholder="defaultPlaceholder"
+        layout="month-and-year"
+      />
     </PopoverContent>
   </Popover>
 </template>
