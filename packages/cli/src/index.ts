@@ -5,8 +5,8 @@ import { build } from '@/src/commands/build'
 import { diff } from '@/src/commands/diff'
 import { info } from '@/src/commands/info'
 import { init } from '@/src/commands/init'
-import { migrate } from '@/src/commands/migrate'
 import { mcp } from '@/src/commands/mcp'
+import { migrate } from '@/src/commands/migrate'
 
 import packageJson from '../package.json'
 

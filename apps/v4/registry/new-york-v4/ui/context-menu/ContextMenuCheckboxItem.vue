@@ -5,7 +5,6 @@ import { reactiveOmit } from "@vueuse/core"
 import { Check } from "lucide-vue-next"
 import {
   ContextMenuCheckboxItem,
-
   ContextMenuItemIndicator,
   useForwardPropsEmits,
 } from "reka-ui"
@@ -30,7 +29,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   >
     <span class="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
       <ContextMenuItemIndicator>
-        <Check class="size-4" />
+        <slot name="indicator-icon">
+          <Check class="size-4" />
+        </slot>
       </ContextMenuItemIndicator>
     </span>
     <slot />
