@@ -72,19 +72,29 @@ import {
   NativeSelect,
   NativeSelectOptGroup,
   NativeSelectOption,
-} from "@/components/ui/native-select"
+} from '@/components/ui/native-select'
 </script>
 
 <template>
   <NativeSelect>
-    <NativeSelectOption value="">Select a fruit</NativeSelectOption>
-    <NativeSelectOption value="apple">Apple</NativeSelectOption>
-    <NativeSelectOption value="banana">Banana</NativeSelectOption>
-    <NativeSelectOption value="blueberry">Blueberry</NativeSelectOption>
+    <NativeSelectOption value="">
+      Select a fruit
+    </NativeSelectOption>
+    <NativeSelectOption value="apple">
+      Apple
+    </NativeSelectOption>
+    <NativeSelectOption value="banana">
+      Banana
+    </NativeSelectOption>
+    <NativeSelectOption value="blueberry">
+      Blueberry
+    </NativeSelectOption>
     <NativeSelectOption value="grapes" disabled>
       Grapes
     </NativeSelectOption>
-    <NativeSelectOption value="pineapple">Pineapple</NativeSelectOption>
+    <NativeSelectOption value="pineapple">
+      Pineapple
+    </NativeSelectOption>
   </NativeSelect>
 </template>
 ```
@@ -104,16 +114,30 @@ name: NativeSelectGroupsDemo
 ```vue showLineNumbers
 <template>
   <NativeSelect>
-    <NativeSelectOption value="">Select a food</NativeSelectOption>
+    <NativeSelectOption value="">
+      Select a food
+    </NativeSelectOption>
     <NativeSelectOptGroup label="Fruits">
-      <NativeSelectOption value="apple">Apple</NativeSelectOption>
-      <NativeSelectOption value="banana">Banana</NativeSelectOption>
-      <NativeSelectOption value="blueberry">Blueberry</NativeSelectOption>
+      <NativeSelectOption value="apple">
+        Apple
+      </NativeSelectOption>
+      <NativeSelectOption value="banana">
+        Banana
+      </NativeSelectOption>
+      <NativeSelectOption value="blueberry">
+        Blueberry
+      </NativeSelectOption>
     </NativeSelectOptGroup>
     <NativeSelectOptGroup label="Vegetables">
-      <NativeSelectOption value="carrot">Carrot</NativeSelectOption>
-      <NativeSelectOption value="broccoli">Broccoli</NativeSelectOption>
-      <NativeSelectOption value="spinach">Spinach</NativeSelectOption>
+      <NativeSelectOption value="carrot">
+        Carrot
+      </NativeSelectOption>
+      <NativeSelectOption value="broccoli">
+        Broccoli
+      </NativeSelectOption>
+      <NativeSelectOption value="spinach">
+        Spinach
+      </NativeSelectOption>
     </NativeSelectOptGroup>
   </NativeSelect>
 </template>
@@ -133,7 +157,6 @@ name: NativeSelectDisabledDemo
 
 Show validation errors with the `aria-invalid` attribute and error styling.
 
-
 ::component-preview
 ---
 name: NativeSelectInvalidDemo
@@ -143,10 +166,18 @@ name: NativeSelectInvalidDemo
 ```vue showLineNumbers
 <template>
   <NativeSelect aria-invalid="true">
-    <NativeSelectOption value="">Select a country</NativeSelectOption>
-    <NativeSelectOption value="us">United States</NativeSelectOption>
-    <NativeSelectOption value="uk">United Kingdom</NativeSelectOption>
-    <NativeSelectOption value="ca">Canada</NativeSelectOption>
+    <NativeSelectOption value="">
+      Select a country
+    </NativeSelectOption>
+    <NativeSelectOption value="us">
+      United States
+    </NativeSelectOption>
+    <NativeSelectOption value="uk">
+      United Kingdom
+    </NativeSelectOption>
+    <NativeSelectOption value="ca">
+      Canada
+    </NativeSelectOption>
   </NativeSelect>
 </template>
 ```
@@ -188,9 +219,15 @@ The `NativeSelect` component provides native HTML select functionality with cons
 ```vue showLineNumbers
 <template>
   <NativeSelect aria-label="Choose your preferred language">
-    <NativeSelectOption value="en">English</NativeSelectOption>
-    <NativeSelectOption value="es">Spanish</NativeSelectOption>
-    <NativeSelectOption value="fr">French</NativeSelectOption>
+    <NativeSelectOption value="en">
+      English
+    </NativeSelectOption>
+    <NativeSelectOption value="es">
+      Spanish
+    </NativeSelectOption>
+    <NativeSelectOption value="fr">
+      French
+    </NativeSelectOption>
   </NativeSelect>
 </template>
 ```
@@ -228,7 +265,9 @@ All other props are passed through to the underlying `<option>` element.
 
 ```vue
 <template>
-  <NativeSelectOption value="apple">Apple</NativeSelectOption>
+  <NativeSelectOption value="apple">
+    Apple
+  </NativeSelectOption>
   <NativeSelectOption value="banana" disabled>
     Banana
   </NativeSelectOption>
@@ -250,8 +289,12 @@ All other props are passed through to the underlying `<optgroup>` element.
 ```vue
 <template>
   <NativeSelectOptGroup label="Fruits">
-    <NativeSelectOption value="apple">Apple</NativeSelectOption>
-    <NativeSelectOption value="banana">Banana</NativeSelectOption>
+    <NativeSelectOption value="apple">
+      Apple
+    </NativeSelectOption>
+    <NativeSelectOption value="banana">
+      Banana
+    </NativeSelectOption>
   </NativeSelectOptGroup>
 </template>
 ```

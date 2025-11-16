@@ -74,7 +74,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
+} from '@/components/ui/navigation-menu'
 </script>
 
 <template>

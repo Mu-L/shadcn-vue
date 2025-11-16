@@ -53,7 +53,7 @@ npx shadcn-vue@latest add textarea
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Textarea } from "@/components/ui/textarea"
+import { Textarea } from '@/components/ui/textarea'
 </script>
 
 <template>

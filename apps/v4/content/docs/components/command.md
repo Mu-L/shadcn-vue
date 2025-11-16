@@ -75,7 +75,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/components/ui/command"
+} from '@/components/ui/command'
 </script>
 
 <template>

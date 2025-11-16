@@ -169,12 +169,12 @@ Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip
 
   ```ts showLineNumbers
   const chartData = [
-    { month: "January", desktop: 186, mobile: 80 },
-    { month: "February", desktop: 305, mobile: 200 },
-    { month: "March", desktop: 237, mobile: 120 },
-    { month: "April", desktop: 73, mobile: 190 },
-    { month: "May", desktop: 209, mobile: 130 },
-    { month: "June", desktop: 214, mobile: 140 },
+    { month: 'January', desktop: 186, mobile: 80 },
+    { month: 'February', desktop: 305, mobile: 200 },
+    { month: 'March', desktop: 237, mobile: 120 },
+    { month: 'April', desktop: 73, mobile: 190 },
+    { month: 'May', desktop: 209, mobile: 130 },
+    { month: 'June', desktop: 214, mobile: 140 },
   ]
   ```
 
@@ -185,16 +185,16 @@ Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip
   The chart config holds configuration for the chart. This is where you place human-readable strings, such as labels, icons and color tokens for theming.
 
   ```ts showLineNumbers
-  import type { ChartConfig } from "@/components/ui/chart"
+  import type { ChartConfig } from '@/components/ui/chart'
 
   const chartConfig = {
     desktop: {
-      label: "Desktop",
-      color: "var(--chart-1)",
+      label: 'Desktop',
+      color: 'var(--chart-1)',
     },
     mobile: {
-      label: "Mobile",
-      color: "var(--chart-2)",
+      label: 'Mobile',
+      color: 'var(--chart-2)',
     },
   } satisfies ChartConfig
   ```
@@ -261,7 +261,6 @@ To add axes to the chart, we use the `VisAxis` component.
   </template>
   ```
 
-
   ::component-preview
   ---
   name: ChartBarDemoAxis
@@ -282,15 +281,16 @@ To add a tooltip, we'll use the custom `ChartTooltip` and `ChartTooltipContent` 
   ::
 
   ```ts
-  import { ChartTooltip, ChartTooltipContent, componentToString } from "@/components/ui/chart"
+  import { ChartTooltip, ChartTooltipContent, componentToString } from '@/components/ui/chart'
   ```
 
   ::step
   Add the components to your chart
   ::
 
-  ```ts showLineNumbers
+  ```vue showLineNumbers
   <ChartTooltip />
+
   <ChartCrosshair :template="componentToString(chartConfig, ChartTooltipContent)" />
   ```
 
@@ -301,11 +301,9 @@ To add a tooltip, we'll use the custom `ChartTooltip` and `ChartTooltipContent` 
   ---
   ::
 
-
   Hover to see the tooltips. Easy, right? Two components, and we've got a beautiful tooltip.
 
 ::
-
 
 ### Add Legend
 
@@ -318,19 +316,17 @@ We'll do the same for the legend. We'll use the `ChartLegend` and `ChartLegendCo
   ::
 
   ```ts
-  import { ChartLegendContent } from "@/components/ui/chart"
+  import { ChartLegendContent } from '@/components/ui/chart'
   ```
-
 
   ::step
   Add the components to your chart.
   ::
 
-  ```vue showLineNumbers {5}
+  ```vue showLineNumbers {4}
   <template>
     <ChartContainer :config="chartConfig" class="min-h-[200px] w-full">
-      <VisXYContainer :data="chartData">
-      </VisXYContainer>
+      <VisXYContainer :data="chartData" />
       <ChartLegendContent />
     </ChartContainer>
   </template>
@@ -360,19 +356,19 @@ This allows you to share config and color tokens between charts. It can also wor
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Monitor } from "lucide-vue-next"
-import type { ChartConfig } from "@/components/ui/chart"
+import type { ChartConfig } from '@/components/ui/chart'
+import { Monitor } from 'lucide-vue-next'
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: 'Desktop',
     icon: Monitor,
     // A color like 'hsl(220, 98%, 61%)' or 'var(--color-name)'
-    color: "var(--chart-1)",
+    color: 'var(--chart-1)',
     // OR a theme object with 'light' and 'dark' keys
     theme: {
-      light: "var(--chart-1)",
-      dark: "var(--chart-2)",
+      light: 'var(--chart-1)',
+      dark: 'var(--chart-2)',
     },
   },
 } satisfies ChartConfig
@@ -412,12 +408,12 @@ Charts has built-in support for theming. You can use css variables (recommended)
   ```ts showLineNumbers {4,8}
   const chartConfig = {
     desktop: {
-      label: "Desktop",
-      color: "var(--chart-1)",
+      label: 'Desktop',
+      color: 'var(--chart-1)',
     },
     mobile: {
-      label: "Mobile",
-      color: "var(--chart-2)",
+      label: 'Mobile',
+      color: 'var(--chart-2)',
     },
   } satisfies ChartConfig
   ```
@@ -431,8 +427,8 @@ You can also define your colors directly in the chart config. Use the color form
 ```ts showLineNumbers
 const chartConfig = {
   desktop: {
-    label: "Desktop",
-    color: "#2563eb",
+    label: 'Desktop',
+    color: '#2563eb',
   },
 } satisfies ChartConfig
 ```
@@ -455,8 +451,8 @@ To use the theme colors in your chart, reference the colors using the format `va
 
 ```ts showLineNumbers
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
+  { browser: 'chrome', visitors: 275, fill: 'var(--color-chrome)' },
+  { browser: 'safari', visitors: 200, fill: 'var(--color-safari)' },
 ]
 ```
 
@@ -471,7 +467,7 @@ Use `labelKey` and `nameKey` to use a custom key for the tooltip label and name.
 Chart comes with the `ChartTooltip` and `ChartTooltipContent` components. You can use these two components to add custom tooltips to your chart.
 
 ```ts showLineNumbers
-import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
 ```
 
 ```vue showLineNumbers
@@ -505,21 +501,21 @@ To use a custom key for tooltip label and names, use the `labelKey` and `nameKey
 
 ```ts showLineNumbers
 const chartData = [
-  { browser: "chrome", visitors: 187, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
+  { browser: 'chrome', visitors: 187, fill: 'var(--color-chrome)' },
+  { browser: 'safari', visitors: 200, fill: 'var(--color-safari)' },
 ]
 
 const chartConfig = {
   visitors: {
-    label: "Total Visitors",
+    label: 'Total Visitors',
   },
   chrome: {
-    label: "Chrome",
-    color: "var(--chart-1)",
+    label: 'Chrome',
+    color: 'var(--chart-1)',
   },
   safari: {
-    label: "Safari",
-    color: "var(--chart-2)",
+    label: 'Safari',
+    color: 'var(--chart-2)',
   },
 } satisfies ChartConfig
 ```
@@ -529,7 +525,7 @@ const chartConfig = {
   <ChartCrosshair
     :template="componentToString(chartConfig, ChartTooltipContent, {
       labelKey: 'visitors',
-      nameKey: 'browser'
+      nameKey: 'browser',
     })"
   />
 </template>
@@ -537,13 +533,12 @@ const chartConfig = {
 
 This will use `Total Visitors` for label and `Chrome` and `Safari` for the tooltip names.
 
-
 ## Legend
 
 You can use the custom `<ChartLegendContent>` components to add a legend to your chart.
 
 ```ts
-import { ChartLegendContent } from "@/components/ui/chart"
+import { ChartLegendContent } from '@/components/ui/chart'
 ```
 
 ```vue
@@ -562,27 +557,26 @@ To use a custom key for legend names, use the `nameKey` prop.
 
 ```tsx showLineNumbers /browser/
 const chartData = [
-  { browser: "chrome", visitors: 187, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
+  { browser: 'chrome', visitors: 187, fill: 'var(--color-chrome)' },
+  { browser: 'safari', visitors: 200, fill: 'var(--color-safari)' },
 ]
 
 const chartConfig = {
   chrome: {
-    label: "Chrome",
-    color: "hsl(var(--chart-1))",
+    label: 'Chrome',
+    color: 'hsl(var(--chart-1))',
   },
   safari: {
-    label: "Safari",
-    color: "hsl(var(--chart-2))",
+    label: 'Safari',
+    color: 'hsl(var(--chart-2))',
   },
 } satisfies ChartConfig
 ```
 
 ```vue
 <template>
-  <ChartLegendContent nameKey="browser" />
+  <ChartLegendContent name-key="browser" />
 </template>
 ```
 
 This will use `Chrome` and `Safari` for the legend names.
-

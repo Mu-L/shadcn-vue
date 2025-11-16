@@ -54,13 +54,20 @@ const open = ref(false)
 const selectedType = ref<'color' | 'page' | 'component' | 'block' | null>(null)
 const copyPayload = ref('')
 
+const pmToDlxCommand: Record<string, string> = {
+  npm: 'npx',
+  yarn: 'yarn dlx',
+  pnpm: 'pnpm dlx',
+  bun: 'bunx',
+}
+
 const packageManager = config.config.value.packageManager || 'pnpm'
 
 function handlePageHighlight(isComponent: boolean, item: { path: string, title?: string }) {
   if (isComponent) {
     const componentName = item.path.split('/').pop()
     selectedType.value = 'component'
-    copyPayload.value = `${packageManager} dlx shadcn@latest add ${componentName}`
+    copyPayload.value = `${pmToDlxCommand[packageManager]} shadcn-vue@latest add ${componentName}`
   }
   else {
     selectedType.value = 'page'
@@ -75,7 +82,7 @@ function handleColorHighlight(color: Color) {
 
 function handleBlockHighlight(block: { name: string, description: string, categories: string[] }) {
   selectedType.value = 'block'
-  copyPayload.value = `${packageManager} dlx shadcn@latest add ${block.name}`
+  copyPayload.value = `${pmToDlxCommand[packageManager]} shadcn-vue@latest add ${block.name}`
 }
 
 function runCommand(command: () => unknown) {

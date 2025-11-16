@@ -73,7 +73,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer"
+} from '@/components/ui/drawer'
 </script>
 
 <template>
@@ -89,7 +89,9 @@ import {
       <DrawerFooter>
         <Button>Submit</Button>
         <DrawerClose>
-          <Button variant="outline">Cancel</Button>
+          <Button variant="outline">
+            Cancel
+          </Button>
         </DrawerClose>
       </DrawerFooter>
     </DrawerContent>

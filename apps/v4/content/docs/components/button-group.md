@@ -12,7 +12,6 @@ class: '[&_.preview]:min-h-[400px]'
 ---
 ::
 
-
 ## Installation
 
 ::code-tabs
@@ -28,7 +27,6 @@ class: '[&_.preview]:min-h-[400px]'
   ::
 
 ::
-
 
 ::tabs-content{value="cli"}
 
@@ -111,7 +109,6 @@ name: ButtonGroupOrientationDemo
 ---
 ::
 
-
 ### Size
 
 Control the size of buttons using the `size` prop on individual buttons.
@@ -184,7 +181,6 @@ name: ButtonGroupWithDropdownMenuDemo
 ---
 ::
 
-
 ### Select
 
 Pair with a `Select` component.
@@ -194,7 +190,6 @@ Pair with a `Select` component.
 name: ButtonGroupWithSelectDemo
 ---
 ::
-
 
 ### Popover
 

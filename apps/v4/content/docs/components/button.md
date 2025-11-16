@@ -62,14 +62,15 @@ npx shadcn-vue@latest add button
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button'
 </script>
 
 <template>
-  <Button variant="outline">Button</Button>
+  <Button variant="outline">
+    Button
+  </Button>
 </template>
 ```
-
 
 ## Cursor
 
@@ -85,7 +86,6 @@ If you want to keep the `cursor: pointer` behavior, add the following code to yo
   }
 }
 ```
-
 
 ## Examples
 
@@ -152,7 +152,6 @@ class: mb-4
 ---
 ::
 
-
 ### Icon
 
 ::component-preview
@@ -180,7 +179,6 @@ name: ButtonWithIcon
 class: mb-4
 ---
 ::
-
 
 ### Rounded
 
@@ -228,7 +226,6 @@ import { Button } from '@/components/ui/button'
   </Button>
 </template>
 ```
-
 
 ## API Reference
 

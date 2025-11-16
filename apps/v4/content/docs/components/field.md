@@ -5,7 +5,6 @@ component: true
 new: true
 ---
 
-
 ::component-preview
 ---
 name: FieldDemo
@@ -22,6 +21,7 @@ npx shadcn-vue@latest add field
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   Field,
   FieldContent,
@@ -33,7 +33,7 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-} from "@/components/ui/field"
+} from '@/components/ui/field'
 </script>
 
 <template>
@@ -41,22 +41,29 @@ import {
     <FieldLegend>Profile</FieldLegend>
     <FieldDescription>This appears on invoices and emails.</FieldDescription>
     <FieldGroup>
-        <Field>
-        <FieldLabel for="name">Full name</FieldLabel>
-        <Input id="name" autoComplete="off" placeholder="Evil Rabbit" />
+      <Field>
+        <FieldLabel for="name">
+          Full name
+        </FieldLabel>
+        <Input id="name" autocomplete="off" placeholder="Evil Rabbit" />
         <FieldDescription>This appears on invoices and emails.</FieldDescription>
-        </Field>
-        <Field>
-        <FieldLabel for="username">Username</FieldLabel>
-        <Input id="username" autoComplete="off" aria-invalid />
+      </Field>
+      <Field>
+        <FieldLabel for="username">
+          Username
+        </FieldLabel>
+        <Input id="username" autocomplete="off" aria-invalid />
         <FieldError>Choose another username.</FieldError>
-        </Field>
-        <Field orientation="horizontal">
+      </Field>
+      <Field orientation="horizontal">
         <Switch id="newsletter" />
-        <FieldLabel for="newsletter">Subscribe to the newsletter</FieldLabel>
-        </Field>
+        <FieldLabel for="newsletter">
+          Subscribe to the newsletter
+        </FieldLabel>
+      </Field>
     </FieldGroup>
- </FieldSet>
+  </FieldSet>
+</template>
 ```
 
 ## Anatomy
@@ -66,7 +73,9 @@ The `Field` family is designed for composing accessible forms. A typical field i
 ```vue showLineNumbers
 <template>
   <Field>
-    <FieldLabel for="input-id">Label</FieldLabel>
+    <FieldLabel for="input-id">
+      Label
+    </FieldLabel>
     <!-- Input, Select, Switch, etc. -->
     <FieldDescription>Optional helper text.</FieldDescription>
     <FieldError>Validation message.</FieldError>
@@ -88,7 +97,6 @@ name: FieldInputDemo
 class: '!mb-4 [&_.preview]:p-6'
 ---
 ::
-
 
 ### Textarea
 
@@ -175,7 +183,6 @@ class: '!mb-4 [&_.preview]:p-6'
 ---
 ::
 
-
 ## Responsive Layout
 
 If you are in tailwindcss v3 you need to install [`@tailwindcss/container-queries`](https://github.com/tailwindlabs/tailwindcss-container-queries)
@@ -200,18 +207,20 @@ class: '!mb-4 [&_.preview]:h-[650px] [&_.preview]:p-6 [&_.preview]:md:h-[500px] 
 ```vue showLineNumbers /data-invalid/ /aria-invalid/
 <template>
   <Field data-invalid>
-    <FieldLabel for="email">Email</FieldLabel>
+    <FieldLabel for="email">
+      Email
+    </FieldLabel>
     <Input id="email" type="email" aria-invalid />
     <FieldError>Enter a valid email address.</FieldError>
   </Field>
-<template>
+</template>
 ```
 
 ## Accessibility
 
-- `FieldSet` and `FieldLegend` keep related controls grouped for keyboard and assistive tech users.
-- `Field` outputs `role="group"` so nested controls inherit labeling from `FieldLabel` and `FieldLegend` when combined.
-- Apply `FieldSeparator` sparingly to ensure screen readers encounter clear section boundaries.
+  - `FieldSet` and `FieldLegend` keep related controls grouped for keyboard and assistive tech users.
+  - `Field` outputs `role="group"` so nested controls inherit labeling from `FieldLabel` and `FieldLegend` when combined.
+  - Apply `FieldSeparator` sparingly to ensure screen readers encounter clear section boundaries.
 
 ## API Reference
 
@@ -228,7 +237,7 @@ Container that renders a semantic `fieldset` with spacing presets.
   <FieldSet>
     <FieldLegend>Delivery</FieldLegend>
     <FieldGroup>
-        <!-- Fields -->
+      <!-- Fields -->
     </FieldGroup>
   </FieldSet>
 </template>
@@ -244,7 +253,9 @@ Legend element for a `FieldSet`. Switch to the `label` variant to align with lab
 | `class` | `string`              |            |
 
 ```vue
-<FieldLegend variant="label">Notification Preferences</FieldLegend>
+<FieldLegend variant="label">
+Notification Preferences
+</FieldLegend>
 ```
 
 The `FieldLegend` has two variants: `legend` and `label`. The `label` variant applies label sizing and alignment. Handy if you have nested `FieldSet`.
@@ -311,7 +322,9 @@ Label styled for both direct inputs and nested `Field` children.
 | `asChild`   | `boolean` | `false` |
 
 ```vue
-<FieldLabel for="email">Email</FieldLabel>
+<FieldLabel for="email">
+Email
+</FieldLabel>
 ```
 
 ### FieldTitle
@@ -338,7 +351,9 @@ Helper text slot that automatically balances long lines in horizontal layouts.
 | `class` | `string` |         |
 
 ```vue
-<FieldDescription>We never share your email with anyone.</FieldDescription>
+<FieldDescription>
+We never share your email with anyone.
+</FieldDescription>
 ```
 
 ### FieldSeparator
@@ -350,7 +365,9 @@ Visual divider to separate sections inside a `FieldGroup`. Accepts optional inli
 | `class` | `string` |         |
 
 ```vue
-<FieldSeparator>Or continue with</FieldSeparator>
+<FieldSeparator>
+Or continue with
+</FieldSeparator>
 ```
 
 ### FieldError

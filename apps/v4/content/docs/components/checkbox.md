@@ -64,7 +64,7 @@ npx shadcn-vue@latest add checkbox
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Checkbox } from "@/components/ui/checkbox"
+import { Checkbox } from '@/components/ui/checkbox'
 </script>
 
 <template>

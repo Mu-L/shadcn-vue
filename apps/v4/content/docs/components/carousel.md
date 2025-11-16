@@ -68,7 +68,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from '@/components/ui/carousel'
 </script>
 
 <template>
@@ -98,29 +98,39 @@ description: A carousel with 3 active items of equal size.
 ---
 ::
 
-
 ```vue showLineNumbers {5-7}
 // 33% of the carousel width.
 <template>
   <Carousel>
     <CarouselContent>
-      <CarouselItem class="basis-1/3">...</CarouselItem>
-      <CarouselItem class="basis-1/3">...</CarouselItem>
-      <CarouselItem class="basis-1/3">...</CarouselItem>
+      <CarouselItem class="basis-1/3">
+        ...
+      </CarouselItem>
+      <CarouselItem class="basis-1/3">
+        ...
+      </CarouselItem>
+      <CarouselItem class="basis-1/3">
+        ...
+      </CarouselItem>
     </CarouselContent>
   </Carousel>
 </template>
 ```
-
 
 ```vue showLineNumbers {5-7}
 // 50% on small screens and 33% on larger screens.
 <template>
   <Carousel>
     <CarouselContent>
-      <CarouselItem class="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
-      <CarouselItem class="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
-      <CarouselItem class="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+        ...
+      </CarouselItem>
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+        ...
+      </CarouselItem>
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+        ...
+      </CarouselItem>
     </CarouselContent>
   </Carousel>
 </template>
@@ -166,7 +176,6 @@ description: A carousel with 3 items with a spacing of 1rem.
 </template>
 ```
 
-
 ```vue showLineNumbers /-ml-2/ /pl-2/ /md:-ml-4/ /md:pl-4/
 <template>
   <Carousel>
@@ -202,7 +211,6 @@ description: A vertical carousel.
   ...
 </Carousel>
 ```
-
 
 ## Options
 
@@ -344,4 +352,3 @@ description: A carousel with the autoplay plugin.
 ::
 
 See the [Embla Carousel docs](https://www.embla-carousel.com/api/plugins/) for more information on using plugins.
-

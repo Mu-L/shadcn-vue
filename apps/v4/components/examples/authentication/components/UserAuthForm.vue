@@ -40,9 +40,9 @@ async function onSubmit(event: Event) {
             id="email"
             placeholder="name@example.com"
             type="email"
-            auto-capitalize="none"
-            auto-complete="email"
-            auto-correct="off"
+            autocapitalize="none"
+            autocomplete="email"
+            autocorrect="off"
             :disabled="isLoading"
           />
         </Field>

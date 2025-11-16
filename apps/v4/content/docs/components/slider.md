@@ -64,7 +64,7 @@ npx shadcn-vue@latest add slider
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Slider } from "@/components/ui/slider"
+import { Slider } from '@/components/ui/slider'
 </script>
 
 <template>

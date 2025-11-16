@@ -70,7 +70,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from '@/components/ui/select'
 </script>
 
 <template>
@@ -79,11 +79,21 @@ import {
       <SelectValue placeholder="Select a fruit" />
     </SelectTrigger>
     <SelectContent>
-      <SelectItem value="apple">Apple</SelectItem>
-      <SelectItem value="banana">Banana</SelectItem>
-      <SelectItem value="blueberry">Blueberry</SelectItem>
-      <SelectItem value="grapes">Grapes</SelectItem>
-      <SelectItem value="pineapple">Pineapple</SelectItem>
+      <SelectItem value="apple">
+        Apple
+      </SelectItem>
+      <SelectItem value="banana">
+        Banana
+      </SelectItem>
+      <SelectItem value="blueberry">
+        Blueberry
+      </SelectItem>
+      <SelectItem value="grapes">
+        Grapes
+      </SelectItem>
+      <SelectItem value="pineapple">
+        Pineapple
+      </SelectItem>
     </SelectContent>
   </Select>
 </template>

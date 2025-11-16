@@ -12,7 +12,6 @@ class: '[&_.preview]:p-6'
 ---
 ::
 
-
 ## Installation
 
 ::code-tabs
@@ -28,7 +27,6 @@ class: '[&_.preview]:p-6'
   ::
 
 ::
-
 
 ::tabs-content{value="cli"}
 
@@ -147,7 +145,6 @@ name: SpinnerEmptyDemo
 ### Item
 
 Use the spinner inside `<ItemMedia>` to indicate a loading state.
-
 
 ::component-preview
 ---

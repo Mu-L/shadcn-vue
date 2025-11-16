@@ -64,7 +64,7 @@ npx shadcn-vue@latest add scroll-area
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from '@/components/ui/scroll-area'
 </script>
 
 <template>

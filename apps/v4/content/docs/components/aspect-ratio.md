@@ -64,13 +64,12 @@ npx shadcn-vue@latest add aspect-ratio
 
 ```vue showLineNumbers
 <script lang="ts">
-import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 </script>
-
 
 <template>
   <AspectRatio :ratio="16 / 9">
-    <img src="..." alt="Image" class="rounded-md object-cover" >
+    <img src="..." alt="Image" class="rounded-md object-cover">
   </AspectRatio>
 </template>
 ```

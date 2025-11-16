@@ -59,9 +59,9 @@ npx shadcn-vue@latest add kbd
 
 ## Usage
 
-
 ```vue
-import { Kbd } from "@/components/ui/kbd"
+<script setup lang="ts">
+import { Kbd } from '@/components/ui/kbd'
 </script>
 
 <template>
@@ -104,7 +104,6 @@ name: KbdWithTooltip
 ### Input Group
 
 You can use the `Kbd` component inside a `InputGroupAddon` component to display a keyboard key inside an input group.
-
 
 ::component-preview
 ---

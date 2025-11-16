@@ -69,21 +69,21 @@ On `npx shadcn-vue add`, the following will:
   ],
   "cssVars": {
     "theme": {
-      "font-sans": "Inter, sans-serif",
-    }
+      "font-sans": "Inter, sans-serif"
+    },
     "light": {
       "main": "#88aaee",
       "bg": "#dfe5f2",
       "border": "#000",
       "text": "#000",
-      "ring": "#000",
+      "ring": "#000"
     },
     "dark": {
       "main": "#88aaee",
       "bg": "#272933",
       "border": "#000",
       "text": "#e6e6e6",
-      "ring": "#fff",
+      "ring": "#fff"
     }
   }
 }

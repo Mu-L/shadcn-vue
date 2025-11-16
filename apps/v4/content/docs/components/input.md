@@ -54,7 +54,7 @@ npx shadcn-vue@latest add input
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Input } from "@/components/ui/input"
+import { Input } from '@/components/ui/input'
 </script>
 
 <template>

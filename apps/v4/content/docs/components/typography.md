@@ -15,7 +15,6 @@ hideCode: true
 ---
 ::
 
-
 ## h1
 
 ::component-preview

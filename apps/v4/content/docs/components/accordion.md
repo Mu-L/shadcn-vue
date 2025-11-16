@@ -16,8 +16,6 @@ align: start
 ---
 ::
 
-
-
 ## Installation
 
 ::code-tabs
@@ -33,7 +31,6 @@ align: start
   ::
 
 ::
-
 
 ::tabs-content{value="cli"}
 

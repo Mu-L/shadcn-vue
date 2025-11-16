@@ -21,8 +21,8 @@ See installation instructions for the [Popover](/docs/components/popover#install
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { ref } from 'vue'
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next'
+import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
 import {
   Command,
@@ -85,7 +85,7 @@ const value = ref('')
               <CheckIcon
                 :class="cn(
                   'mr-2 h-4 w-4',
-                  value === framework.value ? 'opacity-100' : 'opacity-0'
+                  value === framework.value ? 'opacity-100' : 'opacity-0',
                 )"
               />
               {{ framework.label }}

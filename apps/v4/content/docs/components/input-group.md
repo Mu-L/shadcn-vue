@@ -69,28 +69,25 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-} from "@/components/ui/input-group"
+} from '@/components/ui/input-group'
 </script>
 
 <template>
-<InputGroup>
-  <InputGroupInput placeholder="Search..." />
-  <InputGroupAddon>
-    <SearchIcon />
-  </InputGroupAddon>
-  <InputGroupAddon align="inline-end">
-    <InputGroupButton>Search</InputGroupButton>
-  </InputGroupAddon>
-</InputGroup>
+  <InputGroup>
+    <InputGroupInput placeholder="Search..." />
+    <InputGroupAddon>
+      <SearchIcon />
+    </InputGroupAddon>
+    <InputGroupAddon align="inline-end">
+      <InputGroupButton>Search</InputGroupButton>
+    </InputGroupAddon>
+  </InputGroup>
 </template>
 ```
-
-
 
 ## Examples
 
 ### Icon
-
 
 ::component-preview
 ---
@@ -109,7 +106,6 @@ name: InputGroupWithText
 class: '[&_.preview]:p-4'
 ---
 ::
-
 
 ### Button
 
@@ -245,12 +241,10 @@ The main component that wraps inputs and addons.
 
 Displays icons, text, buttons, or other content alongside inputs.
 
-
 ::callout{title="Focus Navigation"}
 For proper focus navigation, the `InputGroupAddon` component should be placed
 after the input. Set the `align` prop to position the addon.
 ::
-
 
 | Prop        | Type                                                             | Default          |
 | ----------- | ---------------------------------------------------------------- | ---------------- |
@@ -285,7 +279,10 @@ Displays buttons within input groups.
 | `class` | `string`                                                                      |           |
 
 ```vue
-<InputGroupButton>Button</InputGroupButton>
+<InputGroupButton>
+Button
+</InputGroupButton>
+
 <InputGroupButton size="icon-xs" aria-label="Copy">
   <CopyIcon />
 </InputGroupButton>

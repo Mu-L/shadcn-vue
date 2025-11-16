@@ -50,7 +50,6 @@ npx shadcn-vue@latest add empty
 
 ## Usage
 
-
 ```vue showLineNumbers
 <script setup lang="ts">
 import { FolderOpen } from 'lucide-vue-next'
@@ -246,4 +245,3 @@ Use the `EmptyContent` component to display the content of the empty state such 
   </EmptyContent>
 </template>
 ```
-

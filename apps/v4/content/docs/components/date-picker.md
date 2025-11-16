@@ -20,16 +20,13 @@ The Date Picker is built using a composition of the `<Popover />` and the `<Cale
 
 See installation instructions for the [Popover](/docs/components/popover) and the [Calendar](/docs/components/calendar) components.
 
-
-
 ## Usage
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CalendarIcon } from 'lucide-vue-next'
 import { DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
-import { cn } from '@/lib/utils'
+import { CalendarIcon } from 'lucide-vue-next'
+import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import {
@@ -37,6 +34,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
 
 const date = ref<Date>()
 const defaultPlaceholder = today(getLocalTimeZone())
@@ -49,7 +47,7 @@ const defaultPlaceholder = today(getLocalTimeZone())
         variant="outline"
         :class="cn(
           'w-[280px] justify-start text-left font-normal',
-          !date && 'text-muted-foreground'
+          !date && 'text-muted-foreground',
         )"
       >
         <CalendarIcon class="mr-2 h-4 w-4" />

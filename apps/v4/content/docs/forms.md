@@ -3,8 +3,6 @@ title: Forms
 description: Build forms with Vue and shadcn-vue.
 ---
 
-
-
 ## Pick Your Framework
 
 Start by selecting your framework. Then follow the instructions to learn how to build forms with shadcn-vue and the form library of your choice.

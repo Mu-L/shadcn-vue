@@ -61,18 +61,22 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from '@/components/ui/breadcrumb'
 </script>
 
 <template>
   <Breadcrumb>
     <BreadcrumbList>
       <BreadcrumbItem>
-        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        <BreadcrumbLink href="/">
+          Home
+        </BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbSeparator />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+        <BreadcrumbLink href="/components">
+          Components
+        </BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbSeparator />
       <BreadcrumbItem>
@@ -97,25 +101,29 @@ name: BreadcrumbCustomSeparatorDemo
 
 ```vue showLineNumbers {2,12-14}
 <script setup lang="ts">
-import { SlashIcon } from "lucide-vue-next"
-//...
+import { SlashIcon } from 'lucide-vue-next'
+// ...
 </script>
 
 <template>
   <Breadcrumb>
     <BreadcrumbList>
       <BreadcrumbItem>
-        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        <BreadcrumbLink href="/">
+          Home
+        </BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbSeparator>
         <SlashIcon />
       </BreadcrumbSeparator>
       <BreadcrumbItem>
-        <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+        <BreadcrumbLink href="/components">
+          Components
+        </BreadcrumbLink>
       </BreadcrumbItem>
     </BreadcrumbList>
   </Breadcrumb>
-<template>
+</template>
 ```
 
 ----
@@ -175,15 +183,15 @@ import { BreadcrumbEllipsis } from "@/components/ui/breadcrumb"
 </script>
 
 <template>
-<Breadcrumb>
-  <BreadcrumbList>
+  <Breadcrumb>
+    <BreadcrumbList>
+      <!-- ... -->
+      <BreadcrumbItem>
+        <BreadcrumbEllipsis />
+      </BreadcrumbItem>
     <!-- ... -->
-    <BreadcrumbItem>
-      <BreadcrumbEllipsis />
-    </BreadcrumbItem>
-    <!-- ... -->
-  </BreadcrumbList>
-</Breadcrumb>
+    </BreadcrumbList>
+  </Breadcrumb>
 </template>
 ```
 
@@ -200,8 +208,8 @@ name: BreadcrumbLinkDemo
 
 ```vue showLineNumbers {2,10-12}
 <script setup lang="ts">
-import { NuxtLink } from "#components"
-//...
+import { NuxtLink } from '#components'
+// ...
 </script>
 
 <template>
@@ -209,7 +217,9 @@ import { NuxtLink } from "#components"
     <BreadcrumbList>
       <BreadcrumbItem>
         <BreadcrumbLink as-child>
-          <NuxtLink to="/">Home</NuxtLink>
+          <NuxtLink to="/">
+            Home
+          </NuxtLink>
         </BreadcrumbLink>
       </BreadcrumbItem>
       {/* ... */}
@@ -230,4 +240,3 @@ It displays a dropdown on desktop and a drawer on mobile.
 name: BreadcrumbResponsiveDemo
 ---
 ::
-

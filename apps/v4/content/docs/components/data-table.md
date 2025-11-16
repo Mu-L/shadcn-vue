@@ -44,49 +44,19 @@ This guide will show you how to use [TanStack Table](https://tanstack.com/table)
 
 ## Installation
 
-::code-tabs
-
-::tabs-list
-
-  ::tabs-trigger{value="cli"}
-  CLI
-  ::
-
-  ::tabs-trigger{value="manual"}
-  Manual
-  ::
-
-::
-
-::tabs-content{value="cli"}
+1. Add the `<Table />` component to your project:
 
 ```bash
-npx shadcn-vue@latest add data-table
+npx shadcn-vue@latest add table
 ```
 
-::
+2. Add `tanstack/vue-table` dependency:
 
-::tabs-content{value="manual"}
-  ::steps
-    ::step
-    Install the following dependencies:
-    ::
+```bash
+npm install @tanstack/vue-table
+```
 
-    ```bash
-    npm install @tanstack/vue-table
-    ```
 
-    ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/data-table) into your project.
-    ::
-
-    ::step
-    Update the import paths to match your project setup.
-    ::
-  ::
-::
-
-::
 
 ## Prerequisites
 

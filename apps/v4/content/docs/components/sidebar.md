@@ -144,7 +144,7 @@ import {
   SidebarProvider,
   SidebarRail,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
+} from '@/components/ui/sidebar'
 </script>
 
 <template>
@@ -216,8 +216,8 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
 
   ```vue showLineNumbers
   <script setup lang="ts">
-  import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-  import AppSidebar from "@/components/AppSidebar.vue"
+  import AppSidebar from '@/components/AppSidebar.vue'
+  import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
   </script>
 
   <template>
@@ -237,7 +237,7 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
 
   ```vue showLineNumbers
   <script setup lang="ts">
-  import { Sidebar, SidebarContent } from "@/components/ui/sidebar"
+  import { Sidebar, SidebarContent } from '@/components/ui/sidebar'
   </script>
 
   <template>
@@ -255,7 +255,7 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
 
   ```vue showLineNumbers
   <script setup lang="ts">
-  import { Calendar, Home, Inbox, Search, Settings } from "lucide-vue-next"
+  import { Calendar, Home, Inbox, Search, Settings } from 'lucide-vue-next'
   import {
     Sidebar,
     SidebarContent,
@@ -265,33 +265,33 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-  } from "@/components/ui/sidebar"
+  } from '@/components/ui/sidebar'
 
   // Menu items.
   const items = [
     {
-      title: "Home",
-      url: "#",
+      title: 'Home',
+      url: '#',
       icon: Home,
     },
     {
-      title: "Inbox",
-      url: "#",
+      title: 'Inbox',
+      url: '#',
       icon: Inbox,
     },
     {
-      title: "Calendar",
-      url: "#",
+      title: 'Calendar',
+      url: '#',
       icon: Calendar,
     },
     {
-      title: "Search",
-      url: "#",
+      title: 'Search',
+      url: '#',
       icon: Search,
     },
     {
-      title: "Settings",
-      url: "#",
+      title: 'Settings',
+      url: '#',
       icon: Settings,
     },
   ]
@@ -304,14 +304,14 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-                <SidebarMenuItem v-for="item in items" :key="item.title">
-                  <SidebarMenuButton as-child>
-                      <a :href="item.url">
-                        <component :is="item.icon" />
-                        <span>{{ item.title }}</span>
-                      </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+              <SidebarMenuItem v-for="item in items" :key="item.title">
+                <SidebarMenuButton as-child>
+                  <a :href="item.url">
+                    <component :is="item.icon" />
+                    <span>{{ item.title }}</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -536,7 +536,7 @@ Used to render the sidebar footer.
           </DropdownMenuTrigger>
           <DropdownMenuContent
             side="top"
-            class="w-[var(--reka-popper-anchor-width)]"
+            class="w-(--reka-popper-anchor-width)"
           >
             <DropdownMenuItem>
               <span>Account</span>
@@ -749,6 +749,7 @@ The `SidebarMenuSub` component is used to render a submenu in the sidebar.
         <span>History</span>
       </SidebarMenuButton>
     </SidebarMenuItem>
+
     <SidebarMenuItem>
       <SidebarMenuButton>
         <span>Starred</span>
@@ -779,6 +780,7 @@ To make a `SidebarMenu` collapsible, wrap it in a `Collapsible` component.
             <span>History</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
+
         <SidebarMenuItem>
           <SidebarMenuButton>
             <span>Starred</span>

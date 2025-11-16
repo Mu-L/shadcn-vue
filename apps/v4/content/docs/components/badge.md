@@ -53,11 +53,13 @@ npx shadcn-vue@latest add badge
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Badge } from "@/components/ui/badge"
+import { Badge } from '@/components/ui/badge'
 </script>
 
 <template>
-  <Badge variant="default | outline | secondary | destructive">Badge</Badge>
+  <Badge variant="default | outline | secondary | destructive">
+    Badge
+  </Badge>
 </template>
 ```
 

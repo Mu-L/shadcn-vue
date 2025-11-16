@@ -68,7 +68,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/ui/input-otp"
+} from '@/components/ui/input-otp'
 </script>
 
 <template>
@@ -103,7 +103,7 @@ description: An input OTP component with a custom pattern.
 
 ```vue showLineNumbers {2,9}
 <script setup lang="ts">
-import { REGEXP_ONLY_DIGITS_AND_CHARS } from "vue-input-otp"
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'vue-input-otp'
 // ...
 </script>
 
@@ -137,7 +137,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/ui/input-otp"
+} from '@/components/ui/input-otp'
 // ...
 </script>
 

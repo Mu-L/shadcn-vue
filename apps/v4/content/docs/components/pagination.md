@@ -72,7 +72,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination"
+} from '@/components/ui/pagination'
 </script>
 
 <template>
@@ -82,7 +82,9 @@ import {
         <PaginationPrevious href="#" />
       </PaginationItem>
       <PaginationItem>
-        <PaginationLink href="#">1</PaginationLink>
+        <PaginationLink href="#">
+          1
+        </PaginationLink>
       </PaginationItem>
       <PaginationItem>
         <PaginationLink href="#" is-active>
@@ -90,7 +92,9 @@ import {
         </PaginationLink>
       </PaginationItem>
       <PaginationItem>
-        <PaginationLink href="#">3</PaginationLink>
+        <PaginationLink href="#">
+          3
+        </PaginationLink>
       </PaginationItem>
       <PaginationItem>
         <PaginationEllipsis />

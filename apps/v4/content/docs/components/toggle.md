@@ -64,7 +64,7 @@ npx shadcn-vue@latest add toggle
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Toggle } from "@/components/ui/toggle"
+import { Toggle } from '@/components/ui/toggle'
 </script>
 
 <template>

@@ -64,7 +64,7 @@ npx shadcn-vue@latest add label
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Label } from "@/components/ui/label"
+import { Label } from '@/components/ui/label'
 </script>
 
 <template>

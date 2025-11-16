@@ -64,14 +64,20 @@ npx shadcn-vue@latest add toggle-group
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 </script>
 
 <template>
   <ToggleGroup type="multiple">
-    <ToggleGroupItem value="a">A</ToggleGroupItem>
-    <ToggleGroupItem value="b">B</ToggleGroupItem>
-    <ToggleGroupItem value="c">C</ToggleGroupItem>
+    <ToggleGroupItem value="a">
+      A
+    </ToggleGroupItem>
+    <ToggleGroupItem value="b">
+      B
+    </ToggleGroupItem>
+    <ToggleGroupItem value="c">
+      C
+    </ToggleGroupItem>
   </ToggleGroup>
 </template>
 ```

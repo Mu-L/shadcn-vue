@@ -117,12 +117,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
   ::
 ::
 
-
-
-
-
 ## Installation
-
 
 ::tabs{default-value="cli"}
 
@@ -170,8 +165,6 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
 ::
 
-
-
 ## Usage
 
 ```vue showLineNumbers
@@ -183,7 +176,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
+} from '@/components/ui/form'
 </script>
 
 <template>
@@ -201,7 +194,6 @@ import {
   </FormField>
 </template>
 ```
-
 
 ### Create a form schema
 
@@ -221,7 +213,6 @@ import {
   }))
   </script>
   ```
-
 
 ### Define a form
 
@@ -314,7 +305,6 @@ import {
 
     ::
 
-
 ### Build your form
 
   Based on last step we can either use `<Form />` component or `useForm` composable
@@ -322,8 +312,8 @@ import {
 
   ```vue showLineNumbers {2}
   <script setup lang="ts">
-  import { useForm } from 'vee-validate'
   import { toTypedSchema } from '@vee-validate/zod'
+  import { useForm } from 'vee-validate'
   import * as z from 'zod'
 
   import { Button } from '@/components/ui/button'
@@ -370,7 +360,6 @@ import {
     </form>
   </template>
   ```
-
 
 ### Done
 

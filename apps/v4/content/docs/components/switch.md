@@ -64,7 +64,7 @@ npx shadcn-vue@latest add switch
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Switch } from "@/components/ui/switch"
+import { Switch } from '@/components/ui/switch'
 </script>
 
 <template>

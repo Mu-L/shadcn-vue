@@ -17,7 +17,7 @@ import {
   <HoverCard>
     <HoverCardTrigger as-child>
       <Button variant="link">
-        @nextjs
+        @nuxt
       </Button>
     </HoverCardTrigger>
     <HoverCardContent class="w-80">
@@ -28,10 +28,10 @@ import {
         </Avatar>
         <div class="space-y-1">
           <h4 class="text-sm font-semibold">
-            @nextjs
+            @nuxt
           </h4>
           <p class="text-sm">
-            The React Framework – created and maintained by @vercel.
+            The Vue Framework – The Progressive Web Framework.
           </p>
           <div class="flex items-center pt-2">
             <CalendarDaysIcon class="mr-2 h-4 w-4 opacity-70" />
