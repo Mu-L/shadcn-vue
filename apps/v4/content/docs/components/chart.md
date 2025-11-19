@@ -62,15 +62,6 @@ We do not wrap Unovis. This means you're not locked into an abstraction. When a 
 
 ::tabs-content{value="cli"}
 
-  ::callout
-  ---
-  icon: true
-  ---
-
-  Make sure to have `new-york-v4` as your `style` to install the latest chart component.
-
-  ::
-
 ```bash
 npx shadcn-vue@latest add chart
 ```
