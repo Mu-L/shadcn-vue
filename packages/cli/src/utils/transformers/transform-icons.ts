@@ -33,47 +33,53 @@ export function transformIcons(opts: TransformOpts, registryIcons: Record<string
         return transformCount
       }
 
-      // Map<orignalIcon, targetedIcon>
+      // Map<originalIcon, targetedIcon>
       const targetedIconsMap: Map<string, string> = new Map()
+
       for (const scriptAST of scriptASTs) {
         traverseScriptAST(scriptAST, {
-
           visitImportDeclaration(path) {
-            if (!ICON_LIBRARY_IMPORTS.has(String(path.node.source.value)))
+            const source = String(path.node.source.value)
+            if (![...ICON_LIBRARY_IMPORTS].some(prefix => source.startsWith(prefix)))
               return this.traverse(path)
+
+            let hasChanges = false
 
             for (const specifier of path.node.specifiers ?? []) {
               if (specifier.type === 'ImportSpecifier') {
                 const iconName = specifier.imported.name
-
                 const targetedIcon = registryIcons[iconName]?.[targetLibrary]
 
-                if (!targetedIcon || targetedIconsMap.has(targetedIcon)) {
+                if (!targetedIcon || targetedIconsMap.has(iconName)) {
                   continue
                 }
 
                 targetedIconsMap.set(iconName, targetedIcon)
                 specifier.imported.name = targetedIcon
+                hasChanges = true
               }
             }
 
-            if (targetedIconsMap.size > 0)
+            if (hasChanges) {
               path.node.source.value = ICON_LIBRARIES[targetLibrary as keyof typeof ICON_LIBRARIES].import
+              transformCount++
+            }
 
             return this.traverse(path)
           },
         })
+      }
 
-        if (sfcAST) {
-          traverseTemplateAST(sfcAST, {
-            enterNode(node) {
-              if (node.type === 'VElement' && targetedIconsMap.has(node.rawName)) {
-                node.rawName = targetedIconsMap.get(node.rawName) ?? ''
-                transformCount++
-              }
-            },
-          })
-        }
+      // Move template traversal outside the loop
+      if (sfcAST && targetedIconsMap.size > 0) {
+        traverseTemplateAST(sfcAST, {
+          enterNode(node) {
+            if (node.type === 'VElement' && targetedIconsMap.has(node.rawName)) {
+              node.rawName = targetedIconsMap.get(node.rawName) ?? ''
+              transformCount++
+            }
+          },
+        })
       }
 
       return transformCount
