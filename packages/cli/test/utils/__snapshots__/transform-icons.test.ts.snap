@@ -28,12 +28,12 @@ import { Primitive } from "reka-ui";
 
 exports[`transformIcons > transforms phosphor icons 1`] = `
 "<script setup>
-import { PhCheck } from '@phosphor-icons/vue';
+import { Check } from "lucide-vue-next";
 import { Primitive } from "reka-ui";
 </script>
 
 <template>
-  <PhCheck />
+  <Check />
   <Primitive />
 </template>
 "
