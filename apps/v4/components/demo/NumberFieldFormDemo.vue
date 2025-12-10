@@ -1,19 +1,17 @@
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
+import { useForm, Field as VeeField } from 'vee-validate'
 import { h } from 'vue'
 import { toast } from 'vue-sonner'
 
 import * as z from 'zod'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/registry/new-york-v4/ui/form'
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from '@/registry/new-york-v4/ui/field'
 import {
   NumberField,
   NumberFieldContent,
@@ -34,18 +32,19 @@ const { handleSubmit, setFieldValue } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {
-  toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+  toast('You submitted the following values:', {
+    description: h('pre', { class: 'mt-2 w-[320px] rounded-md bg-neutral-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
   })
 })
 </script>
 
 <template>
   <form class="w-2/3 space-y-6" @submit="onSubmit">
-    <FormField v-slot="{ value }" name="payment">
-      <FormItem>
-        <FormLabel>Payment</FormLabel>
+    <VeeField v-slot="{ value, errors }" name="payment">
+      <Field class="w-[300px]" :data-invalid="!!errors.length">
+        <FieldLabel for="payment">
+          Payment
+        </FieldLabel>
         <NumberField
           class="gap-2"
           :min="0"
@@ -67,18 +66,16 @@ const onSubmit = handleSubmit((values) => {
         >
           <NumberFieldContent>
             <NumberFieldDecrement />
-            <FormControl>
-              <NumberFieldInput />
-            </FormControl>
+            <NumberFieldInput />
             <NumberFieldIncrement />
           </NumberFieldContent>
         </NumberField>
-        <FormDescription>
+        <FieldDescription>
           Enter value between 10 and 5000.
-        </FormDescription>
-        <FormMessage />
-      </FormItem>
-    </FormField>
+        </FieldDescription>
+        <FieldError v-if="errors.length" :errors="errors" />
+      </Field>
+    </VeeField>
     <Button type="submit">
       Submit
     </Button>
