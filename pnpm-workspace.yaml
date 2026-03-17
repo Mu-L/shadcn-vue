@@ -39,7 +39,7 @@ catalog:
   open: ^10.2.0
   oxc-parser: ^0.102.0
   pathe: ^2.0.3
-  reka-ui: ^2.7.0
+  reka-ui: ^2.9.2
   tinyglobby: ^0.2.15
   tsx: ^4.21.0
   typescript: ^5.9.3

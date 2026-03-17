@@ -110,7 +110,10 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'manifest', href: `${siteConfig.url}/site.webmanifest` },
+        // Only add manifest in production
+        ...(process.env.NODE_ENV === 'production'
+          ? [{ rel: 'manifest', href: `${siteConfig.url}/site.webmanifest` }]
+          : []),
         { rel: 'shortcut icon', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       ],
