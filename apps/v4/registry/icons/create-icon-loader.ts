@@ -1,7 +1,7 @@
 import type { IconLibraryName } from "shadcn-vue/icons"
 import type { Component, SVGAttributes } from "vue"
 import { HugeiconsIcon } from "@hugeicons/vue"
-import { defineComponent, h, ref, watchEffect } from "vue"
+import { defineComponent, h, ref, shallowRef, watchEffect } from "vue"
 
 const iconPromiseCaches = new Map<string, Map<string, Promise<any>>>()
 
@@ -32,7 +32,7 @@ export function createIconLoader(libraryName: IconLibraryName) {
       },
     },
     setup(props, { attrs }) {
-      const iconData = ref<Component | unknown[] | null>(null)
+      const iconData = shallowRef<Component | unknown[] | null>(null)
       const isLoading = ref(true)
 
       watchEffect(async () => {
