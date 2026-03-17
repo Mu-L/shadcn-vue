@@ -43,6 +43,7 @@ const Component = defineAsyncComponent(() => {
 
 definePageMeta({
   layout: 'blank',
+  ssr: false,
 })
 </script>
 

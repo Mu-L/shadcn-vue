@@ -70,6 +70,9 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    ssr: {
+      noExternal: ['@tabler/icons-vue'],
+    },
   },
   build: {
     transpile: ['vee-validate', 'vue-sonner'],

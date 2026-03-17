@@ -3,47 +3,48 @@ import { useRouteQuery } from '@vueuse/router'
 import { DEFAULT_CONFIG } from '@/registry/config'
 
 export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
-  const base = useRouteQuery<BaseName>('base', DEFAULT_CONFIG.base, { mode })
+  const DEFAULT_OPTIONS = { mode, route: useRoute(), router: useRouter() }
+  const base = useRouteQuery<BaseName>('base', DEFAULT_CONFIG.base, DEFAULT_OPTIONS)
 
-  const item = useRouteQuery<string>('item', 'preview', { mode })
+  const item = useRouteQuery<string>('item', 'preview', DEFAULT_OPTIONS)
 
   const iconLibrary = useRouteQuery<IconLibraryName>(
     'iconLibrary',
     DEFAULT_CONFIG.iconLibrary,
-    { mode },
+    DEFAULT_OPTIONS,
   )
 
-  const style = useRouteQuery<StyleName>('style', DEFAULT_CONFIG.style, { mode })
+  const style = useRouteQuery<StyleName>('style', DEFAULT_CONFIG.style, DEFAULT_OPTIONS)
 
-  const theme = useRouteQuery<ThemeName>('theme', DEFAULT_CONFIG.theme, { mode })
+  const theme = useRouteQuery<ThemeName>('theme', DEFAULT_CONFIG.theme, DEFAULT_OPTIONS)
 
-  const font = useRouteQuery<FontValue>('font', DEFAULT_CONFIG.font, { mode })
+  const font = useRouteQuery<FontValue>('font', DEFAULT_CONFIG.font, DEFAULT_OPTIONS)
 
   const baseColor = useRouteQuery<BaseColorName>(
     'baseColor',
     DEFAULT_CONFIG.baseColor,
-    { mode },
+    DEFAULT_OPTIONS,
   )
 
   const menuAccent = useRouteQuery<MenuAccentValue>(
     'menuAccent',
     DEFAULT_CONFIG.menuAccent,
-    { mode },
+    DEFAULT_OPTIONS,
   )
 
   const menuColor = useRouteQuery<MenuColorValue>(
     'menuColor',
     DEFAULT_CONFIG.menuColor,
-    { mode },
+    DEFAULT_OPTIONS,
   )
 
-  const radius = useRouteQuery<RadiusValue>('radius', 'default', { mode })
+  const radius = useRouteQuery<RadiusValue>('radius', 'default', DEFAULT_OPTIONS)
 
-  const template = useRouteQuery<'nuxt' | 'start' | 'vite'>('template', 'nuxt', { mode })
+  const template = useRouteQuery<'nuxt' | 'start' | 'vite'>('template', 'nuxt', DEFAULT_OPTIONS)
 
-  const size = useRouteQuery<number>('size', 100, { mode })
+  const size = useRouteQuery<number>('size', 100, DEFAULT_OPTIONS)
 
-  const custom = useRouteQuery<any>('custom', false, { mode })
+  const custom = useRouteQuery<any>('custom', false, DEFAULT_OPTIONS)
 
   return {
     base,
