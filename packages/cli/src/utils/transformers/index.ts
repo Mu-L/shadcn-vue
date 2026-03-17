@@ -6,8 +6,10 @@ import { getRegistryIcons } from '@/src/registry/api'
 import { transformCssVars } from '@/src/utils/transformers/transform-css-vars'
 import { transformImport } from '@/src/utils/transformers/transform-import'
 import { transformSFC } from '@/src/utils/transformers/transform-sfc'
+import { transformStyle } from '@/src/utils/transformers/transform-style'
 import { transformTwPrefix } from '@/src/utils/transformers/transform-tw-prefix'
 import { transformIcons } from './transform-icons'
+import { transformMenu } from './transform-menu'
 
 export interface TransformOpts {
   filename: string
@@ -27,5 +29,7 @@ export async function transform(opts: TransformOpts) {
     transformCssVars(opts),
     await transformTwPrefix(opts),
     transformIcons(opts, registryIcons),
+    transformMenu(opts),
+    transformStyle(opts),
   ]).code
 }
