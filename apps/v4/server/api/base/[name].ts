@@ -1,4 +1,5 @@
 import type { H3Event } from 'h3'
+import type { RegistryItem } from 'shadcn-vue/schema'
 import { Index } from '~/registry/bases/__index__'
 
 export default cachedEventHandler(async (event) => {
@@ -10,7 +11,7 @@ export default cachedEventHandler(async (event) => {
     })
   }
 
-  return Index[name]
+  return Index[name] as RegistryItem
 }, {
   shouldBypassCache: () => !!import.meta.dev,
   // maxAge: 60 * 60 * 24, // 1 day

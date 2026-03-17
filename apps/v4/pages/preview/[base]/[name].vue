@@ -1,19 +1,19 @@
 <script setup lang="ts">
+import type { RegistryItem } from 'shadcn-vue/schema'
 import { useMounted } from '@vueuse/core'
-import { Index } from '~/registry/bases/__index__'
 
 const route = useRoute()
-const params = useDesignSystemSearchParams()
 const isMounted = useMounted()
 const { isReady } = useDesignSystemProvider()
 
 const base = route.params.base?.toString() ?? ''
 const name = route.params.name?.toString() ?? ''
 
+const { data } = useFetch(`/api/base/${base}`)
+
 // Get the item from the registry to determine its type
 const registryItem = computed(() => {
-  const baseRegistry = Index[base]
-  return baseRegistry?.[name]
+  return data.value?.[name as keyof typeof data.value] as RegistryItem
 })
 
 const isBlock = computed(() => registryItem.value?.type === 'registry:block')
