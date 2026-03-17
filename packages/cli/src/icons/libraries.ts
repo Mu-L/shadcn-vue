@@ -21,8 +21,24 @@ export const iconLibraries = {
     packages: ['@hugeicons/vue', '@hugeicons/core-free-icons'],
     import:
       'import { HugeiconsIcon } from \'@hugeicons/vue\'\nimport { ICON } from \'@hugeicons/core-free-icons\';',
-    usage: '<HugeiconsIcon icon={ICON} strokeWidth={2} />',
+    usage: '<HugeiconsIcon :icon="ICON" :strokeWidth="2" />',
     export: '@hugeicons/core-free-icons',
+  },
+  phosphor: {
+    name: 'phosphor',
+    title: 'Phosphor Icons',
+    packages: ['@phosphor-icons/vue'],
+    import: 'import { ICON } from \'@phosphor-icons/vue\'',
+    usage: '<ICON :strokeWidth="2" />',
+    export: '@phosphor-icons/vue',
+  },
+  remixicon: {
+    name: 'remixicon',
+    title: 'Remix Icon',
+    packages: ['@remixicon/vue'],
+    import: 'import { ICON } from \'@remixicon/vue\'',
+    usage: '<ICON />',
+    export: '@remixicon/vue',
   },
 } as const
 

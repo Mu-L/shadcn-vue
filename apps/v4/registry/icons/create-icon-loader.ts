@@ -3,6 +3,14 @@ import type { Component, SVGAttributes } from "vue"
 import { HugeiconsIcon } from "@hugeicons/vue"
 import { defineComponent, h, ref, shallowRef, watchEffect } from "vue"
 
+const moduleLoaders: Record<IconLibraryName, () => Promise<any>> = {
+  lucide: () => import("./__lucide__.ts"),
+  tabler: () => import("./__tabler__.ts"),
+  hugeicons: () => import("./__hugeicons__.ts"),
+  phosphor: () => import("./__phosphor__.ts"),
+  remixicon: () => import("./__remixicon__.ts"),
+}
+
 const iconPromiseCaches = new Map<string, Map<string, Promise<any>>>()
 
 function getCache(libraryName: string) {
@@ -39,7 +47,7 @@ export function createIconLoader(libraryName: IconLibraryName) {
         const iconName = props.name
 
         if (!cache.has(iconName)) {
-          const promise = import(`./__${libraryName}__.ts`).then((mod) => {
+          const promise = moduleLoaders[libraryName]().then((mod) => {
             const icon = mod[iconName as keyof typeof mod]
             return icon || null
           })

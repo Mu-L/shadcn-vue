@@ -18,7 +18,6 @@ const items = computed(() => {
     type: item.type,
   }))
 })
-console.log(data, items)
 
 definePageMeta({
   layout: 'blank',
