@@ -23,13 +23,22 @@ function pascalCase(str: string) {
 }
 
 // Load component from blocks or examples based on type
+// NOTE: factory runs lazily; we must wait for `data` to load so isBlock.value is accurate
 const Component = defineAsyncComponent(() => {
   if (isBlock.value) {
-    return import(`@/registry/bases/${base}/blocks/${name}.vue`).then(mod => mod.default)
+    return import(`@/registry/bases/${base}/blocks/${name}.vue`).then((mod) => {
+      if (!mod.default)
+        throw new Error(`No default export in block: ${name}`)
+      return mod.default
+    })
   }
   // Examples have folder structure: examples/{name}/{PascalCaseName}.vue
   const exampleName = name.replace('-example', '')
-  return import(`@/registry/bases/${base}/examples/${exampleName}/${pascalCase(name)}.vue`).then(mod => mod.default)
+  return import(`@/registry/bases/${base}/examples/${exampleName}/${pascalCase(name)}.vue`).then((mod) => {
+    if (!mod.default)
+      throw new Error(`No default export in example: ${name}`)
+    return mod.default
+  })
 })
 
 definePageMeta({
@@ -38,7 +47,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div v-if="isReady && isMounted" class="relative">
+  <div v-if="isReady && isMounted && data" class="relative">
     <component :is="Component" />
   </div>
 </template>
