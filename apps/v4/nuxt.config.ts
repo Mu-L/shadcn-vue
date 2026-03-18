@@ -80,19 +80,15 @@ export default defineNuxtConfig({
   routeRules: {
     // Static assets - immutable, long cache
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
-    // Doc pages - ISR with 6 hour revalidation
-    '/docs/**': { isr: 21600 },
-    // Block/chart/example pages - SWR with 6 hours
-    '/blocks/**': { swr: 21600 },
-    '/charts/**': { swr: 21600 },
-    '/examples/**': { swr: 21600 },
-    '/colors/**': { swr: 21600 },
-    '/themes': { swr: 21600 },
-    // API routes - cache at CDN level
-    '/api/all-items': { cache: { maxAge: 86400 } },
-    '/api/base/**': { cache: { maxAge: 86400 } },
-    '/api/block/**': { cache: { maxAge: 3600 } },
-    '/api/category/**': { cache: { maxAge: 3600 } },
+    // Pages - prerender as static (reset on each deploy)
+    '/docs/**': { prerender: true },
+    '/blocks/**': { prerender: true },
+    '/charts/**': { prerender: true },
+    '/examples/**': { prerender: true },
+    '/colors/**': { prerender: true },
+    '/themes': { prerender: true },
+    // API routes - cache indefinitely (reset on each deploy)
+    '/api/**': { swr: 31536000 },
   },
   nitro: {
     preset: 'cloudflare-module',
