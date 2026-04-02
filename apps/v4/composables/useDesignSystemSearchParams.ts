@@ -20,6 +20,10 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
 
   const font = useRouteQuery<FontValue>('font', DEFAULT_CONFIG.font, DEFAULT_OPTIONS)
 
+  const fontHeading = useRouteQuery<string>('fontHeading', 'inherit', DEFAULT_OPTIONS)
+
+  const chartColor = useRouteQuery<string>('chartColor', 'emerald', DEFAULT_OPTIONS)
+
   const baseColor = useRouteQuery<BaseColorName>(
     'baseColor',
     DEFAULT_CONFIG.baseColor,
@@ -53,6 +57,8 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
     style,
     theme,
     font,
+    fontHeading,
+    chartColor,
     baseColor,
     menuAccent,
     menuColor,

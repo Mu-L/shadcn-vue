@@ -6,6 +6,7 @@ export type LockableParam
     | 'theme'
     | 'iconLibrary'
     | 'font'
+    | 'fontHeading'
     | 'menuAccent'
     | 'menuColor'
     | 'radius'
