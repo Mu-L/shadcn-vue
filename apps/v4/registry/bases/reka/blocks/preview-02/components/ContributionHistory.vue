@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/registry/bases/reka/ui/chart"
-import { VisGroupedBar, VisXYContainer } from "@unovis/vue"
+import { VisAxis, VisGroupedBar, VisXYContainer } from "@unovis/vue"
 import { Badge } from "@/registry/bases/reka/ui/badge"
 import { Button } from "@/registry/bases/reka/ui/button"
 import {
@@ -57,13 +57,21 @@ const chartConfig = {
     </CardHeader>
     <CardContent>
       <ChartContainer :config="chartConfig" class="h-[200px] w-full">
-        <VisXYContainer :data="chartData" :margin="{ left: 0, right: 0, top: 8, bottom: 0 }">
+        <VisXYContainer :data="chartData" :margin="{ left: 4, right: 4, top: 8, bottom: 4 }">
           <VisGroupedBar
             :x="(d: Data) => d.index"
             :y="[(d: Data) => d.amount]"
             :color="[chartConfig.amount.color]"
             :rounded-corners="6"
-            :bar-padding="0.2"
+            :bar-padding="0.05"
+          />
+          <VisAxis
+            type="x"
+            :tick-line="false"
+            :domain-line="false"
+            :grid-line="false"
+            :num-ticks="chartData.length"
+            :tick-format="(v: number) => chartData[v]?.month ?? ''"
           />
           <ChartTooltip />
           <ChartCrosshair

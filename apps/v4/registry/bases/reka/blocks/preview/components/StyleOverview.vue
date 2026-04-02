@@ -1,10 +1,14 @@
 <script setup lang="ts">
+import { useDesignSystemSearchParams } from "@/composables/useDesignSystemSearchParams"
+import { FONTS } from "@/lib/fonts"
 import { Card, CardContent } from "@/registry/bases/reka/ui/card"
+import { STYLES } from "@/registry/styles"
 
-// Static preview values (no Next.js search params)
-const currentStyleTitle = "Default"
-const currentFontName = "Inter"
-const currentFontHeadingName = ""
+const { style, font, fontHeading } = useDesignSystemSearchParams("replace")
+
+const currentStyleTitle = computed(() => STYLES.find(s => s.name === style.value)?.title ?? style.value)
+const currentFontName = computed(() => FONTS.find(f => f.value === font.value)?.name ?? font.value)
+const currentFontHeadingName = computed(() => fontHeading.value === "inherit" ? "" : (FONTS.find(f => f.value === fontHeading.value)?.name ?? fontHeading.value))
 
 const colorVariants = [
   "--background",

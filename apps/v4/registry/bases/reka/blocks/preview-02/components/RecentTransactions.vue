@@ -26,7 +26,7 @@ import {
 const transactions = [
   {
     id: "coffee",
-    icon: { lucide: "CoffeeIcon", tabler: "IconCoffee", hugeicons: "CoffeeIcon", phosphor: "CoffeeIcon", remixicon: "RiCupLine" },
+    icon: { lucide: "CoffeeIcon", tabler: "IconCoffee", hugeicons: "Coffee01Icon", phosphor: "CoffeeIcon", remixicon: "RiCupLine" },
     name: "Blue Bottle Coffee",
     category: "Food & Drink",
     date: "Today, 10:24 AM",

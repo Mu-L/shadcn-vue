@@ -81,7 +81,7 @@ const chartConfig = {
     <CardFooter class="flex-col items-start gap-1">
       <span class="text-sm text-muted-foreground">Battery Level</span>
       <div class="flex w-full items-center gap-2">
-        <Progress :value="85" class="flex-1" />
+        <Progress :model-value="85" class="flex-1" />
         <span class="text-sm font-medium tabular-nums">85%</span>
       </div>
     </CardFooter>

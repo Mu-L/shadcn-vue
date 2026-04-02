@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import QRCode from "qrcode"
 import { Button } from "@/registry/bases/reka/ui/button"
 import {
   Card,
@@ -8,14 +9,27 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/reka/ui/card"
+
+const svgData = ref("")
+
+onMounted(async () => {
+  svgData.value = await QRCode.toString("https://shadcn-vue.com", {
+    type: "svg",
+    margin: 0,
+  })
+})
 </script>
 
 <template>
   <Card>
     <CardContent class="flex justify-center pt-6">
-      <div class="rounded-xl border bg-white p-4">
-        <!-- QR code placeholder - renders as a visual grid pattern -->
-        <div class="size-40 bg-[repeating-linear-gradient(0deg,transparent,transparent_7px,#000_7px,#000_8px),repeating-linear-gradient(90deg,transparent,transparent_7px,#000_7px,#000_8px)] opacity-80" />
+      <div class="rounded-xl border bg-white p-4 dark:bg-black dark:invert">
+        <div
+          v-if="svgData"
+          class="size-40 [&_svg]:size-full"
+          v-html="svgData"
+        />
+        <div v-else class="size-40 animate-pulse rounded-sm bg-muted" />
       </div>
     </CardContent>
     <CardHeader class="text-center">

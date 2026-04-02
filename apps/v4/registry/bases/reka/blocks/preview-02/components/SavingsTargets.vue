@@ -57,7 +57,7 @@ import { Progress } from "@/registry/bases/reka/ui/progress"
               <span class="text-3xl font-semibold tabular-nums">
                 $420,000
               </span>
-              <Progress :value="65" />
+              <Progress :model-value="65" />
             </ItemContent>
             <ItemFooter>
               <span class="text-sm text-muted-foreground">
@@ -76,7 +76,7 @@ import { Progress } from "@/registry/bases/reka/ui/progress"
               <span class="text-3xl font-semibold tabular-nums">
                 $85,000
               </span>
-              <Progress :value="32" />
+              <Progress :model-value="32" />
             </ItemContent>
             <ItemFooter>
               <span class="text-sm text-muted-foreground">
@@ -116,7 +116,7 @@ import { Progress } from "@/registry/bases/reka/ui/progress"
             <FieldLabel for="invest-type">
               Order Type
             </FieldLabel>
-            <NativeSelect id="invest-type" default-value="market">
+            <NativeSelect id="invest-type" model-value="market">
               <NativeSelectOption value="market">
                 Market Order
               </NativeSelectOption>

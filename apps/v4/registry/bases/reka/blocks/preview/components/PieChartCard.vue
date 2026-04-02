@@ -105,7 +105,7 @@ const donutColors = pieChartData.map(d => (pieChartConfig as Record<string, { co
         </span>
       </div>
       <Progress
-        :value="topBrowserShare"
+        :model-value="topBrowserShare"
         class="**:data-[slot=progress-indicator]:bg-chart-3"
       />
     </CardFooter>
