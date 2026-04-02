@@ -69,5 +69,5 @@ export function decodePreset(encoded: string): Record<string, string> {
   const bytes = base62ToBytes(encoded, FIELDS.length)
   return Object.fromEntries(
     FIELDS.map(({ key, values }, i) => [key, (values as readonly string[])[bytes[i]!] ?? values[0]]),
-  )
+  ) as Record<string, string>
 }

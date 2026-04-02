@@ -85,7 +85,7 @@ const data = computed(() => CHART_DATA[ticker.value] ?? DEFAULT_DATA)
           <Combobox
             :items="TICKERS"
             :model-value="ticker"
-            @update:model-value="(value) => { if (value !== null) ticker = value }"
+            @update:model-value="(value) => { if (value !== null) ticker = value as string }"
           >
             <ComboboxInput
               id="ticker-select"

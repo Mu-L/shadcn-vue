@@ -10,8 +10,8 @@ const params = useDesignSystemSearchParams()
 
 const currentBase = computed(() => BASES.find(base => base.name === params.base.value))
 
-function handleValueChange(value: string) {
-  const newBase = BASES.find(base => base.name === value)
+function handleValueChange(value: unknown) {
+  const newBase = BASES.find(base => base.name === String(value))
   if (!newBase)
     return
   params.base.value = newBase.name

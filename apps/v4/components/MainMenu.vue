@@ -18,7 +18,10 @@ const isMac = ref(false)
 const { openActionMenu } = useActionMenu()
 const { showResetDialog } = useReset()
 const { isLocked } = useLocks()
-const { toggleMode } = useColorMode()
+const colorMode = useColorMode()
+function toggleMode() {
+  colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'
+}
 const params = useDesignSystemSearchParams()
 
 onMounted(() => {

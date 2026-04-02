@@ -78,7 +78,7 @@ function handleToggle(id: string, value: boolean) {
             id="notify-all"
             :checked="allChecked"
             :indeterminate="someChecked"
-            @update:checked="(v) => handleSelectAll(!!v)"
+            @update:checked="(v: boolean | 'indeterminate') => handleSelectAll(!!v)"
           />
           <FieldContent>
             <FieldLabel for="notify-all">
@@ -94,7 +94,7 @@ function handleToggle(id: string, value: boolean) {
           <Checkbox
             :id="`notify-${n.id}`"
             :checked="checked[n.id]"
-            @update:checked="(v) => handleToggle(n.id, !!v)"
+            @update:checked="(v: boolean | 'indeterminate') => handleToggle(n.id, !!v)"
           />
           <FieldContent>
             <FieldLabel :for="`notify-${n.id}`">

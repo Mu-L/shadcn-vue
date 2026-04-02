@@ -33,7 +33,7 @@ const date = ref(new CalendarDate(today.getFullYear(), today.getMonth() + 1, tod
     <CardContent class="flex flex-col gap-4">
       <Item variant="outline" class="justify-center">
         <Calendar
-          :model-value="date"
+          :model-value="(date as any)"
           class="w-full [--cell-size:--spacing(8)] md:[--cell-size:--spacing(10)]"
           @update:model-value="v => v && (date = v as typeof date)"
         />

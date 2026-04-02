@@ -31,7 +31,7 @@ const users = [
   "rauchg",
 ]
 
-const selectedUsers = ref<string[]>([users[0]])
+const selectedUsers = ref<string[]>([users[0]!])
 </script>
 
 <template>

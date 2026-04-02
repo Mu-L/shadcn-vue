@@ -17,15 +17,16 @@ import {
 const position = ref([50])
 
 const preset = computed(() => {
-  if (position.value[0] <= 10)
+  if ((position.value[0] ?? 0) <= 10)
     return "open"
-  if (position.value[0] >= 90)
+  if ((position.value[0] ?? 0) >= 90)
     return "closed"
   return "half"
 })
 
-function handlePresetChange(value: string[]) {
-  const v = value[0]
+function handlePresetChange(value: unknown) {
+  const arr = Array.isArray(value) ? value as string[] : [value as string]
+  const v = arr[0]
   if (v === "open")
     position.value = [0]
   else if (v === "half")

@@ -86,7 +86,7 @@ const amount = ref([2500])
               Minimum Payout Amount
             </FieldLabel>
             <span class="text-2xl font-semibold tabular-nums">
-              ${{ amount[0].toFixed(2) }}
+              ${{ amount[0]!.toFixed(2) }}
             </span>
           </div>
           <Slider

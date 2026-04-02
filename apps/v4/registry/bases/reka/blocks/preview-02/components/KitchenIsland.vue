@@ -38,8 +38,9 @@ const colorTemp = ref([70])
 const volume = ref([30])
 const fade = ref([0])
 
-function handleSceneChange(value: string[]) {
-  const v = value[0]
+function handleSceneChange(value: unknown) {
+  const arr = Array.isArray(value) ? value as string[] : [value as string]
+  const v = arr[0]
   if (!v)
     return
   scene.value = v
