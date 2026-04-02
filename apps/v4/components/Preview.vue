@@ -3,7 +3,6 @@ import type { SplitterPanel } from 'reka-ui'
 import type { DesignSystemSearchParams } from '@/composables/useDesignSystemSearchParams'
 import { useEventListener } from '@vueuse/core'
 import { sendToIframe } from '@/composables/useIframeMessageListener'
-import { Badge } from '@/registry/new-york-v4/ui/badge'
 
 // Message types for keyboard shortcut forwarding from iframe
 const CMD_K_FORWARD_TYPE = 'cmd-k-forward'
@@ -96,19 +95,14 @@ const iframeSrc = computed(() => {
   <div class="relative flex flex-1 flex-col justify-center overflow-hidden rounded-2xl ring ring-foreground/10 md:ring-muted dark:ring-foreground/10">
     <div class="relative z-0 mx-auto flex w-full flex-1 flex-col overflow-hidden">
       <div class="absolute inset-0 bg-muted dark:bg-muted/30" />
-      <!-- <iframe
+      <iframe
         ref="iframeRef"
         :key="typeof route.query.item === 'string' ? route.query.item : params.item.value"
         :src="iframeSrc"
         class="z-10 size-full flex-1"
         title="Preview"
-      /> -->
-      <Badge
-        class="absolute right-2 bottom-2 isolate z-10"
-        variant="secondary"
-      >
-        Preview
-      </Badge>
+      />
+      <PreviewSwitcher />
     </div>
   </div>
 </template>

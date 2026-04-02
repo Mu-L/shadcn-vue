@@ -26,7 +26,7 @@ function pascalCase(str: string) {
 // NOTE: factory runs lazily; we must wait for `data` to load so isBlock.value is accurate
 const Component = defineAsyncComponent(() => {
   if (isBlock.value) {
-    return import(`@/registry/bases/${base}/blocks/${name}.vue`).then((mod) => {
+    return import(`@/registry/bases/${base}/blocks/${name}/page.vue`).then((mod) => {
       if (!mod.default)
         throw new Error(`No default export in block: ${name}`)
       return mod.default

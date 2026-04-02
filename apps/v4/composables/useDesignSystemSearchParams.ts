@@ -6,7 +6,7 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
   const DEFAULT_OPTIONS = { mode, route: useRoute(), router: useRouter() }
   const base = useRouteQuery<BaseName>('base', DEFAULT_CONFIG.base, DEFAULT_OPTIONS)
 
-  const item = useRouteQuery<string>('item', 'preview', DEFAULT_OPTIONS)
+  const item = useRouteQuery<string>('item', 'preview-02', DEFAULT_OPTIONS)
 
   const iconLibrary = useRouteQuery<IconLibraryName>(
     'iconLibrary',
