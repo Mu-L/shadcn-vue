@@ -20,7 +20,7 @@ const currentChartColorIsBaseColor = computed(
 
 watch(availableChartColors, (themes) => {
   if (!currentChartColor.value && themes.length > 0) {
-    params.chartColor.value = themes[0].name
+    params.chartColor.value = themes[0]!.name
   }
 }, { immediate: true })
 </script>
@@ -54,7 +54,7 @@ watch(availableChartColors, (themes) => {
         <PickerRadioGroup
           :model-value="currentChartColor?.name"
           @update:model-value="(value) => {
-            params.chartColor.value = value
+            params.chartColor.value = value as string
           }"
         >
           <PickerGroup>

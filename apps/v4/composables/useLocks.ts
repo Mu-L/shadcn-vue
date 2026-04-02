@@ -4,6 +4,7 @@ export type LockableParam
   = | 'style'
     | 'baseColor'
     | 'theme'
+    | 'chartColor'
     | 'iconLibrary'
     | 'font'
     | 'fontHeading'

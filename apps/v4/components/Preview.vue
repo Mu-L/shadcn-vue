@@ -84,7 +84,7 @@ function handleMessage(event: MessageEvent) {
 useEventListener(globalThis.window, 'message', handleMessage)
 
 const route = useRoute()
-const initialParams = `?theme=${params.theme.value ?? 'neutral'}&iconLibrary=${params.iconLibrary.value ?? 'lucide'}&style=${params.style.value ?? 'vega'}&font=${params.font.value ?? 'inter'}&baseColor=${params.baseColor.value ?? 'neutral'}`
+const initialParams = `?theme=${params.theme.value ?? 'blue'}&iconLibrary=${params.iconLibrary.value ?? 'hugeicons'}&style=${params.style.value ?? 'luma'}&font=${params.font.value ?? 'geist'}&baseColor=${params.baseColor.value ?? 'neutral'}&chartColor=${params.chartColor.value ?? 'emerald'}&radius=${params.radius.value ?? 'default'}&menuAccent=${params.menuAccent.value ?? 'subtle'}&menuColor=${params.menuColor.value ?? 'inverted-translucent'}`
 const iframeSrc = computed(() => {
   const item = typeof route.query.item === 'string' ? route.query.item : params.item.value
   return `/preview/${params.base.value}/${item}${initialParams}`

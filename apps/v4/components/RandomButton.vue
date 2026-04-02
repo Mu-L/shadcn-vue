@@ -12,7 +12,7 @@ import {
   RADII,
   STYLES,
 } from '@/registry/config'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-nova/ui/button'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
@@ -46,6 +46,10 @@ function randomize() {
     params.menuColor.value = getRandomItem(MENU_COLORS).value
   if (!isLocked('menuAccent'))
     params.menuAccent.value = getRandomItem(MENU_ACCENTS).value
+  if (!isLocked('chartColor')) {
+    const chartColors = getThemesForBaseColor(params.baseColor.value)
+    params.chartColor.value = getRandomItem(chartColors).name
+  }
   params.custom.value = true
 }
 </script>

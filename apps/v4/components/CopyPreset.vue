@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { useClipboard } from '@vueuse/core'
+import { encodePreset } from '@/lib/preset-encoding'
 import { cn } from '@/lib/utils'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-nova/ui/button'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
@@ -11,31 +12,20 @@ const props = defineProps<{
 const params = useDesignSystemSearchParams()
 const { copy, copied } = useClipboard()
 
-const presetCode = computed(() => {
-  const parts: string[] = []
-  if (params.style.value)
-    parts.push(`--style ${params.style.value}`)
-  if (params.baseColor.value)
-    parts.push(`--base-color ${params.baseColor.value}`)
-  if (params.theme.value && params.theme.value !== params.baseColor.value)
-    parts.push(`--theme ${params.theme.value}`)
-  if (params.font.value)
-    parts.push(`--font ${params.font.value}`)
-  if (params.fontHeading.value && params.fontHeading.value !== 'inherit')
-    parts.push(`--font-heading ${params.fontHeading.value}`)
-  if (params.radius.value && params.radius.value !== 'default')
-    parts.push(`--radius ${params.radius.value}`)
-  if (params.iconLibrary.value)
-    parts.push(`--icon-library ${params.iconLibrary.value}`)
-  if (params.menuColor.value && params.menuColor.value !== 'default')
-    parts.push(`--menu-color ${params.menuColor.value}`)
-  if (params.menuAccent.value && params.menuAccent.value !== 'subtle')
-    parts.push(`--menu-accent ${params.menuAccent.value}`)
-  return parts.join(' ')
-})
+const presetId = computed(() => encodePreset({
+  style: params.style.value,
+  baseColor: params.baseColor.value,
+  theme: params.theme.value,
+  font: params.font.value,
+  fontHeading: params.fontHeading.value,
+  radius: params.radius.value,
+  iconLibrary: params.iconLibrary.value,
+  menuColor: params.menuColor.value,
+  menuAccent: params.menuAccent.value,
+}))
 
 function handleCopy() {
-  copy(presetCode.value)
+  copy(`npx shadcn-vue@latest init --preset ${presetId.value}`)
 }
 </script>
 
@@ -48,6 +38,6 @@ function handleCopy() {
     )"
     @click="handleCopy"
   >
-    <span>{{ copied ? 'Copied' : presetCode || 'Copy Preset' }}</span>
+    <span>{{ copied ? 'Copied' : `--preset ${presetId}` }}</span>
   </Button>
 </template>

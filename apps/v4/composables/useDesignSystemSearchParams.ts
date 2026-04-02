@@ -44,7 +44,7 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
 
   const radius = useRouteQuery<RadiusValue>('radius', 'default', DEFAULT_OPTIONS)
 
-  const template = useRouteQuery<'nuxt' | 'start' | 'vite'>('template', 'nuxt', DEFAULT_OPTIONS)
+  const template = useRouteQuery<'nuxt' | 'vite' | 'laravel' | 'astro'>('template', 'nuxt', DEFAULT_OPTIONS)
 
   const size = useRouteQuery<number>('size', 100, DEFAULT_OPTIONS)
 
