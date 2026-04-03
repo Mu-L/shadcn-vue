@@ -25,7 +25,6 @@ const items = computed(() => {
       <Preview />
       <Customizer :items="items" />
     </div>
-    <!-- <PresetHandler /> -->
     <WelcomeDialog />
   </div>
 </template>

@@ -10,6 +10,7 @@ const RANDOMIZE_FORWARD_TYPE = 'randomize-forward'
 const DARK_MODE_FORWARD_TYPE = 'dark-mode-forward'
 
 const params = useDesignSystemSearchParams()
+const colorMode = useColorMode()
 
 const iframeRef = ref<HTMLIFrameElement | null>(null)
 const resizablePanelRef = ref<InstanceType<typeof SplitterPanel> | null>(null)
@@ -18,6 +19,14 @@ const iframeKey = ref(0)
 
 watch(params.size, () => {
   resizablePanelRef.value?.resize(params.size.value)
+})
+
+watch(() => colorMode.value, (mode) => {
+  const iframe = iframeRef.value
+  if (!iframe?.contentWindow) {
+    return
+  }
+  sendToIframe(iframe, 'color-mode-sync', { colorMode: mode })
 })
 
 watch(() => params, () => {
@@ -31,6 +40,7 @@ watch(() => params, () => {
       Object.entries(toRaw(params)).map(([key, value]) => [key, unref(value)]),
     ) as DesignSystemSearchParams
     sendToIframe(iframe, 'design-system-params', rawParams)
+    sendToIframe(iframe, 'color-mode-sync', { colorMode: colorMode.value })
   }
 
   if (iframe.contentWindow) {

@@ -4,6 +4,11 @@ import { buildRegistryTheme, DEFAULT_CONFIG, getTheme } from '~/registry/config'
 
 export function useDesignSystemProvider() {
   const { style, theme, font, baseColor, menuAccent, menuColor, radius, iconLibrary, chartColor } = useDesignSystemSearchParams('replace')
+  const colorMode = useColorMode()
+
+  useIframeMessageListener('color-mode-sync', (value) => {
+    colorMode.value = value.colorMode as any
+  })
 
   useIframeMessageListener('design-system-params', (value) => {
     // console.log(value)

@@ -2,7 +2,7 @@
 import type { RegistryItem } from 'shadcn-vue/schema'
 import { FONT_HEADING_OPTIONS, FONTS } from '@/lib/fonts'
 import { getThemesForBaseColor, STYLES } from '@/registry/config'
-import { Button } from '@/styles/reka-nova/ui/button'
+
 import {
   Card,
   CardContent,
@@ -24,8 +24,6 @@ const isMobile = useIsMobile()
 const anchorRef = ref<HTMLDivElement | null>(null)
 
 const availableThemes = computed(() => getThemesForBaseColor(baseColor.value))
-
-const showCreateDialog = ref(false)
 </script>
 
 <template>
@@ -105,10 +103,7 @@ const showCreateDialog = ref(false)
       <ResetDialog />
     </CardFooter>
     <CardFooter class="-mt-3 hidden min-w-0 gap-2 md:flex md:flex-col md:**:[button,a]:w-full">
-      <Button @click="showCreateDialog = true">
-        Create Project
-      </Button>
-      <CreateProjectDialog :open="showCreateDialog" @update:open="showCreateDialog = $event" />
+      <CreateProjectButton />
     </CardFooter>
   </Card>
 </template>
