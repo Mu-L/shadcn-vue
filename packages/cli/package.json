@@ -88,6 +88,7 @@
     "fs-extra": "^11.3.2",
     "fuzzysort": "^3.1.0",
     "get-tsconfig": "^4.13.0",
+    "giget": "catalog:",
     "magic-string": "^0.30.21",
     "nypm": "^0.6.2",
     "ofetch": "^1.5.1",

@@ -128,7 +128,7 @@ export const initOptionsSchema = z.object({
         return true
       },
       {
-        message: 'Invalid template. Please use \'nuxt\', \'vite\', or \'vite-router\'.',
+        message: 'Invalid template. Please use \'nuxt\', \'vite\', \'astro\', or \'laravel\'.',
       },
     ),
   base: z
@@ -217,7 +217,7 @@ export const init = new Command()
   )
   .option(
     '-t, --template <template>',
-    'the template to use. (nuxt, vite, vite-router)',
+    'the template to use. (nuxt, vite, astro, laravel)',
   )
   .option(
     '--base <base>',
@@ -281,6 +281,7 @@ export const init = new Command()
         opts.iconLibrary = opts.iconLibrary ?? preset.iconLibrary
         opts.font = opts.font ?? preset.font
         opts.baseColor = opts.baseColor ?? preset.baseColor
+        opts.yes = true
       }
 
       // Apply defaults when --defaults flag is set.
@@ -422,7 +423,7 @@ export async function runInit(
 
   let config = projectConfig
     ? await promptForMinimalConfig(projectConfig, options)
-    : await promptForConfig(await getConfig(options.cwd))
+    : await promptForConfig(await getConfig(options.cwd), options)
 
   if (!options.yes) {
     const { proceed } = await prompts({
@@ -516,151 +517,179 @@ export async function runInit(
   return fullConfig
 }
 
-async function promptForConfig(defaultConfig: Config | null = null) {
-  const [styles, baseColors] = await Promise.all([
-    getRegistryStyles(),
-    getRegistryBaseColors(),
-  ])
+async function promptForConfig(defaultConfig: Config | null = null, opts?: z.infer<typeof initOptionsSchema>) {
+  let base = opts?.base ?? 'reka'
+  let style = opts?.style ?? 'vega'
+  let font = opts?.font ?? 'inter'
+  let iconLibrary = opts?.iconLibrary ?? 'lucide'
+  let baseColor = opts?.baseColor ?? 'neutral'
+  let typescript = defaultConfig?.typescript ?? true
+  let tailwindCss = defaultConfig?.tailwind.css ?? DEFAULT_TAILWIND_CSS
+  let tailwindCssVariables = opts?.cssVariables ?? defaultConfig?.tailwind.cssVariables ?? true
+  let tailwindPrefix = defaultConfig?.tailwind.prefix ?? ''
+  let tailwindConfig = defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG
+  let componentsAlias = defaultConfig?.aliases.components ?? DEFAULT_COMPONENTS
+  let utilsAlias = defaultConfig?.aliases.utils ?? DEFAULT_UTILS
 
-  logger.info('')
-  const options = await prompts([
-    {
-      type: 'toggle',
-      name: 'typescript',
-      message: `Would you like to use ${highlighter.info(
-        'TypeScript',
-      )} (recommended)?`,
-      initial: defaultConfig?.typescript ?? true,
-      active: 'yes',
-      inactive: 'no',
-    },
-    {
-      type: 'select',
-      name: 'base',
-      message: `Which ${highlighter.info('component library')} would you like to use?`,
-      choices: BASES.map(base => ({
-        title: base.label,
-        value: base.name,
-        description: base.description,
-      })),
-      initial: 0,
-    },
-    {
-      type: 'select',
-      name: 'style',
-      message: `Which ${highlighter.info('visual style')} would you like to use?`,
-      choices: [
-        ...STYLES.map(style => ({
-          title: style.label,
-          value: style.name,
-          description: style.description,
+  if (opts?.preset === undefined && !opts?.defaults) {
+    const [styles, baseColors] = await Promise.all([
+      getRegistryStyles(),
+      getRegistryBaseColors(),
+    ])
+
+    logger.info('')
+    const options = await prompts([
+      {
+        type: 'toggle',
+        name: 'typescript',
+        message: `Would you like to use ${highlighter.info(
+          'TypeScript',
+        )} (recommended)?`,
+        initial: typescript,
+        active: 'yes',
+        inactive: 'no',
+      },
+      {
+        type: 'select',
+        name: 'base',
+        message: `Which ${highlighter.info('component library')} would you like to use?`,
+        choices: BASES.map(b => ({
+          title: b.label,
+          value: b.name,
+          description: b.description,
         })),
-        ...styles.filter(s => !STYLES.find(st => st.name === s.name)).map(style => ({
-          title: style.label,
-          value: style.name,
+        initial: 0,
+      },
+      {
+        type: 'select',
+        name: 'style',
+        message: `Which ${highlighter.info('visual style')} would you like to use?`,
+        choices: [
+          ...STYLES.map(s => ({
+            title: s.label,
+            value: s.name,
+            description: s.description,
+          })),
+          ...styles.filter(s => !STYLES.find(st => st.name === s.name)).map(s => ({
+            title: s.label,
+            value: s.name,
+          })),
+        ],
+        initial: 0,
+      },
+      {
+        type: 'select',
+        name: 'iconLibrary',
+        message: `Which ${highlighter.info('icon library')} would you like to use?`,
+        choices: ICON_LIBRARIES.map(lib => ({
+          title: lib.label,
+          value: lib.name,
         })),
-      ],
-      initial: 0,
-    },
-    {
-      type: 'select',
-      name: 'iconLibrary',
-      message: `Which ${highlighter.info('icon library')} would you like to use?`,
-      choices: ICON_LIBRARIES.map(lib => ({
-        title: lib.label,
-        value: lib.name,
-      })),
-      initial: 0,
-    },
-    {
-      type: 'select',
-      name: 'font',
-      message: `Which ${highlighter.info('font')} would you like to use?`,
-      choices: FONTS.map(font => ({
-        title: font.label,
-        value: font.name,
-      })),
-      initial: 0,
-    },
-    {
-      type: 'select',
-      name: 'tailwindBaseColor',
-      message: `Which color would you like to use as the ${highlighter.info(
-        'base color',
-      )}?`,
-      choices: baseColors.map(color => ({
-        title: color.label,
-        value: color.name,
-      })),
-    },
-    {
-      type: 'text',
-      name: 'tailwindCss',
-      message: `Where is your ${highlighter.info('global CSS')} file?`,
-      initial: defaultConfig?.tailwind.css ?? DEFAULT_TAILWIND_CSS,
-    },
-    {
-      type: 'toggle',
-      name: 'tailwindCssVariables',
-      message: `Would you like to use ${highlighter.info(
-        'CSS variables',
-      )} for theming?`,
-      initial: defaultConfig?.tailwind.cssVariables ?? true,
-      active: 'yes',
-      inactive: 'no',
-    },
-    {
-      type: 'text',
-      name: 'tailwindPrefix',
-      message: `Are you using a custom ${highlighter.info(
-        'tailwind prefix eg. tw-',
-      )}? (Leave blank if not)`,
-      initial: '',
-    },
-    {
-      type: 'text',
-      name: 'tailwindConfig',
-      message: `Where is your ${highlighter.info(
-        'tailwind.config.js',
-      )} located?`,
-      initial: defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG,
-    },
-    {
-      type: 'text',
-      name: 'components',
-      message: `Configure the import alias for ${highlighter.info(
-        'components',
-      )}:`,
-      initial: defaultConfig?.aliases.components ?? DEFAULT_COMPONENTS,
-    },
-    {
-      type: 'text',
-      name: 'utils',
-      message: `Configure the import alias for ${highlighter.info('utils')}:`,
-      initial: defaultConfig?.aliases.utils ?? DEFAULT_UTILS,
-    },
-  ])
+        initial: 0,
+      },
+      {
+        type: 'select',
+        name: 'font',
+        message: `Which ${highlighter.info('font')} would you like to use?`,
+        choices: FONTS.map(f => ({
+          title: f.label,
+          value: f.name,
+        })),
+        initial: 0,
+      },
+      {
+        type: 'select',
+        name: 'tailwindBaseColor',
+        message: `Which color would you like to use as the ${highlighter.info(
+          'base color',
+        )}?`,
+        choices: baseColors.map(color => ({
+          title: color.label,
+          value: color.name,
+        })),
+      },
+      {
+        type: 'text',
+        name: 'tailwindCss',
+        message: `Where is your ${highlighter.info('global CSS')} file?`,
+        initial: tailwindCss,
+      },
+      {
+        type: 'toggle',
+        name: 'tailwindCssVariables',
+        message: `Would you like to use ${highlighter.info(
+          'CSS variables',
+        )} for theming?`,
+        initial: tailwindCssVariables,
+        active: 'yes',
+        inactive: 'no',
+      },
+      {
+        type: 'text',
+        name: 'tailwindPrefix',
+        message: `Are you using a custom ${highlighter.info(
+          'tailwind prefix eg. tw-',
+        )}? (Leave blank if not)`,
+        initial: '',
+      },
+      {
+        type: 'text',
+        name: 'tailwindConfig',
+        message: `Where is your ${highlighter.info(
+          'tailwind.config.js',
+        )} located?`,
+        initial: tailwindConfig,
+      },
+      {
+        type: 'text',
+        name: 'components',
+        message: `Configure the import alias for ${highlighter.info(
+          'components',
+        )}:`,
+        initial: componentsAlias,
+      },
+      {
+        type: 'text',
+        name: 'utils',
+        message: `Configure the import alias for ${highlighter.info('utils')}:`,
+        initial: utilsAlias,
+      },
+    ])
+
+    base = options.base ?? base
+    style = options.style ?? style
+    font = options.font ?? font
+    iconLibrary = options.iconLibrary ?? iconLibrary
+    baseColor = options.tailwindBaseColor ?? baseColor
+    typescript = options.typescript ?? typescript
+    tailwindCss = options.tailwindCss ?? tailwindCss
+    tailwindCssVariables = options.tailwindCssVariables ?? tailwindCssVariables
+    tailwindPrefix = options.tailwindPrefix ?? tailwindPrefix
+    tailwindConfig = options.tailwindConfig ?? tailwindConfig
+    componentsAlias = options.components ?? componentsAlias
+    utilsAlias = options.utils ?? utilsAlias
+  }
 
   return rawConfigSchema.parse({
     $schema: 'https://shadcn-vue.com/schema.json',
-    base: options.base,
-    style: options.style,
-    font: options.font,
-    iconLibrary: options.iconLibrary,
+    base,
+    style,
+    font,
+    iconLibrary,
     tailwind: {
-      config: options.tailwindConfig,
-      css: options.tailwindCss,
-      baseColor: options.tailwindBaseColor,
-      cssVariables: options.tailwindCssVariables,
-      prefix: options.tailwindPrefix,
+      config: tailwindConfig,
+      css: tailwindCss,
+      baseColor,
+      cssVariables: tailwindCssVariables,
+      prefix: tailwindPrefix,
     },
-    typescript: options.typescript,
+    typescript,
     aliases: {
-      utils: options.utils,
-      components: options.components,
+      utils: utilsAlias,
+      components: componentsAlias,
       // TODO: fix this.
-      lib: options.components.replace(/\/components$/, '/lib'),
-      composables: options.components.replace(/\/components$/, '/composables'),
+      lib: componentsAlias.replace(/\/components$/, '/lib'),
+      composables: componentsAlias.replace(/\/components$/, '/composables'),
     },
   })
 }
@@ -676,7 +705,7 @@ async function promptForMinimalConfig(
   let baseColor = opts.baseColor
   let cssVariables = defaultConfig.tailwind.cssVariables
 
-  if (!opts.defaults) {
+  if (opts.preset === undefined && !opts.defaults) {
     const [styles, baseColors, tailwindVersion] = await Promise.all([
       getRegistryStyles(),
       getRegistryBaseColors(),

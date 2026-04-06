@@ -489,7 +489,7 @@ async function resolveRegistryDependencies(
   )
 
   const style = config.resolvedPaths?.cwd
-    ? await getTargetStyleFromConfig(config.resolvedPaths.cwd, config.style)
+    ? resolveRegistryStyle(await getTargetStyleFromConfig(config.resolvedPaths.cwd, config.style))
     : resolveRegistryStyle(config.style)
 
   const urls = registryNames.map(name =>
