@@ -88,7 +88,7 @@ describe('createProject', () => {
     })
 
     expect(downloadTemplate).toHaveBeenCalledWith(
-      'github:unovue/shadcn-vue/templates/nuxt',
+      'github:unovue/shadcn-vue/templates/nuxt#dev',
       { dir: '/test/my-app' },
     )
   })
@@ -111,7 +111,7 @@ describe('createProject', () => {
     })
 
     expect(downloadTemplate).toHaveBeenCalledWith(
-      'github:unovue/shadcn-vue/templates/vite',
+      'github:unovue/shadcn-vue/templates/vite#dev',
       { dir: '/test/my-vite-app' },
     )
   })
@@ -134,7 +134,7 @@ describe('createProject', () => {
     })
 
     expect(downloadTemplate).toHaveBeenCalledWith(
-      'github:unovue/shadcn-vue/templates/astro',
+      'github:unovue/shadcn-vue/templates/astro#dev',
       { dir: '/test/my-astro-app' },
     )
   })
@@ -157,7 +157,7 @@ describe('createProject', () => {
     })
 
     expect(downloadTemplate).toHaveBeenCalledWith(
-      'github:unovue/shadcn-vue/templates/laravel',
+      'github:unovue/shadcn-vue/templates/laravel#dev',
       { dir: '/test/my-laravel-app' },
     )
   })
