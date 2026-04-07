@@ -108,7 +108,7 @@ export async function createProject(
       await fs.copy(path.join(templateDir, template), projectPath)
     }
     else {
-      await downloadTemplate(`${REPO}/templates/${template}`, {
+      await downloadTemplate(`${REPO}/templates/${template}#dev`, {
         dir: projectPath,
       })
     }
