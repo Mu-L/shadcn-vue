@@ -22,7 +22,7 @@ const forwarded = useForwardProps(delegatedProps)
 <template>
   <PaginationFirst
     data-slot="pagination-first"
-    :class="cn(buttonVariants({ variant: 'ghost', size }), 'cn-pagination-first', props.class)"
+    :class="cn(buttonVariants({ variant: 'ghost', size }), '', props.class)"
     v-bind="forwarded"
   >
     <slot>
@@ -34,7 +34,7 @@ const forwarded = useForwardProps(delegatedProps)
         remixicon="RiArrowLeftDoubleLine"
         data-icon="inline-start"
       />
-      <span class="cn-pagination-first-text hidden sm:block">First</span>
+      <span class="hidden sm:block">First</span>
     </slot>
   </PaginationFirst>
 </template>

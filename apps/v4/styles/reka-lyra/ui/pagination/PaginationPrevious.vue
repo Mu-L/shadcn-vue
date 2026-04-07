@@ -34,7 +34,7 @@ const forwarded = useForwardProps(delegatedProps)
         remixicon="RiArrowLeftSLine"
         data-icon="inline-start"
       />
-      <span class="cn-pagination-previous-text hidden sm:block">Previous</span>
+      <span class="hidden sm:block">Previous</span>
     </slot>
   </PaginationPrev>
 </template>

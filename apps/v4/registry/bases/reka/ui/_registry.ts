@@ -511,6 +511,7 @@ export const ui: Registry["items"] = [
     ],
     registryDependencies: [
       "icon-placeholder",
+      "input-group",
     ],
     files: [
       {

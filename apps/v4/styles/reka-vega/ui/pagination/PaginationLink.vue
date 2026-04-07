@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<{
         variant: isActive ? 'outline' : 'ghost',
         size,
       }),
-      'cn-pagination-link',
+      '',
       props.class,
     )"
   >

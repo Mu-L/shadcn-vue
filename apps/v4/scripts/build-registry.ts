@@ -8,6 +8,7 @@ import { getAllBlocks } from '@/lib/blocks'
 import { registry } from '@/registry/index'
 import { ui } from '~/registry/new-york-v4/ui/_registry'
 import { crawlBlock, crawlChart, crawlComposables, crawlExample, crawlUI } from './crawl-content'
+import { buildStyles } from './lib/build-styles'
 import { registryConfig } from './registry.config'
 
 async function writeFile(path: string, payload: any) {
@@ -442,6 +443,10 @@ async function main() {
 
     // Build the bases index file that exports all bases
     await buildBasesIndex()
+
+    // Generate per-style component outputs from registry/bases/reka/ui
+    // (expands cn-* placeholder classes against registry/styles/style-*.css).
+    await buildStyles()
 
     // eslint-disable-next-line no-console
     console.log('\n✅ Registry build complete!')

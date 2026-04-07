@@ -611,7 +611,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: ["icon-placeholder","input-group"],
       files: [
             {
                   "path": "registry/bases/reka/ui/combobox/Combobox.vue",
@@ -2765,7 +2765,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:block",
-      registryDependencies: ["alert","badge","button","card","item","chart","empty","avatar","tooltip","field","toggle-group","dropdown-menu","input-group","separator","spinner","tabs","checkbox","native-select","textarea","input","select","table","kbd","progress","skeleton","dialog","alert-dialog","button-group","radio-group","slider","switch"],
+      registryDependencies: ["alert","badge","button","card","item","chart","empty","avatar","tooltip","field","toggle-group","dropdown-menu","input-group","separator","spinner","tabs","checkbox","native-select","textarea","input","select","table","kbd","progress","skeleton","useDesignSystemSearchParams","fonts","styles","dialog","alert-dialog","button-group","radio-group","slider","switch"],
       files: [
             {
                   "path": "registry/bases/reka/blocks/preview/page.vue",

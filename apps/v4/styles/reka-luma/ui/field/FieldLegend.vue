@@ -12,12 +12,7 @@ const props = defineProps<{
   <legend
     data-slot="field-legend"
     :data-variant="variant"
-    :class="cn(
-      'mb-3 font-medium',
-      'data-[variant=legend]:text-base',
-      'data-[variant=label]:text-sm',
-      props.class,
-    )"
+    :class="cn('mb-3 font-medium data-[variant=label]:text-sm data-[variant=legend]:text-base', props.class)"
   >
     <slot />
   </legend>

@@ -35,7 +35,7 @@ const delegatedProps = reactiveOmit(props, 'class')
           hugeicons="ArrowDown01Icon"
           phosphor="CaretDownIcon"
           remixicon="RiArrowDownSLine"
-          class="cn-accordion-trigger-icon pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden"
+          class="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden"
         />
         <IconPlaceholder
           lucide="ChevronUpIcon"
@@ -44,7 +44,7 @@ const delegatedProps = reactiveOmit(props, 'class')
           hugeicons="ArrowUp01Icon"
           phosphor="CaretUpIcon"
           remixicon="RiArrowUpSLine"
-          class="cn-accordion-trigger-icon pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline"
+          class="pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline"
         />
       </slot>
     </AccordionTrigger>

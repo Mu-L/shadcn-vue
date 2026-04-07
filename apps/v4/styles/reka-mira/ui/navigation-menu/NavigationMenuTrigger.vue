@@ -30,7 +30,7 @@ const forwardedProps = useForwardProps(delegatedProps)
       hugeicons="ArrowDown01Icon"
       phosphor="CaretDownIcon"
       remixicon="RiArrowDownSLine"
-      class="relative top-[1px] ml-1 size-3 transition duration-300 group-data-open/navigation-menu-trigger:rotate-180 group-data-popup-open/navigation-menu-trigger:rotate-180"
+      class="relative top-[1px] ml-1 size-3 transition duration-300 group-data-[state=open]/navigation-menu-trigger:rotate-180 group-data-popup-open/navigation-menu-trigger:rotate-180"
       aria-hidden="true"
     />
   </NavigationMenuTrigger>
