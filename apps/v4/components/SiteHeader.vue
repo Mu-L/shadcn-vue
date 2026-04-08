@@ -2,8 +2,8 @@
 import { PlusSignIcon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
 import { siteConfig } from '@/lib/config'
-import { Button } from '@/registry/new-york-v4/ui/button'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
+import { Button } from '@/styles/reka-nova/ui/button'
 import { getColors } from '~/lib/colors'
 import { Icons } from './Icons'
 
