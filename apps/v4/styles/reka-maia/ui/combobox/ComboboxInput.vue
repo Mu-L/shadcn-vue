@@ -6,7 +6,7 @@ import { reactiveOmit } from '@vueuse/core'
 import { SearchIcon } from 'lucide-vue-next'
 import { ComboboxInput, useForwardPropsEmits } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import { InputGroup, InputGroupAddon } from '@/registry/bases/reka/ui/input-group'
+import { InputGroup, InputGroupAddon } from '@/styles/reka-maia/ui/input-group'
 
 defineOptions({
   inheritAttrs: false,

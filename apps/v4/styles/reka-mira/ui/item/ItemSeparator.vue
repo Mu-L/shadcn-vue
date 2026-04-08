@@ -2,7 +2,7 @@
 import type { SeparatorProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
-import { Separator } from '@/registry/bases/reka/ui/separator'
+import { Separator } from '@/styles/reka-mira/ui/separator'
 
 const props = defineProps<
   SeparatorProps & { class?: HTMLAttributes['class'] }

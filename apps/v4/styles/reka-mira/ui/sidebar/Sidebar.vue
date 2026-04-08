@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { SidebarProps } from '.'
 import { cn } from '@/lib/utils'
-import { Sheet, SheetContent } from '@/registry/bases/reka/ui/sheet'
-import SheetDescription from '@/registry/bases/reka/ui/sheet/SheetDescription.vue'
-import SheetHeader from '@/registry/bases/reka/ui/sheet/SheetHeader.vue'
-import SheetTitle from '@/registry/bases/reka/ui/sheet/SheetTitle.vue'
+import { Sheet, SheetContent } from '@/styles/reka-mira/ui/sheet'
+import SheetDescription from '@/styles/reka-mira/ui/sheet/SheetDescription.vue'
+import SheetHeader from '@/styles/reka-mira/ui/sheet/SheetHeader.vue'
+import SheetTitle from '@/styles/reka-mira/ui/sheet/SheetTitle.vue'
 import { SIDEBAR_WIDTH_MOBILE, useSidebar } from './utils'
 
 defineOptions({

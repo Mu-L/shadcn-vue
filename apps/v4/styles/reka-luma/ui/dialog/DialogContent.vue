@@ -11,7 +11,7 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import { Button } from '@/registry/bases/reka/ui/button'
+import { Button } from '@/styles/reka-luma/ui/button'
 import DialogOverlay from './DialogOverlay.vue'
 
 defineOptions({

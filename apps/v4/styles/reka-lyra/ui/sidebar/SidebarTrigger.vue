@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'vue'
 
 import { PanelLeftIcon } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
-import { Button } from '@/registry/bases/reka/ui/button'
+import { Button } from '@/styles/reka-lyra/ui/button'
 import { useSidebar } from './utils'
 
 const props = defineProps<{

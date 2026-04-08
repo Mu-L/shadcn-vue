@@ -28,7 +28,7 @@
     },
     {
       "path": "styles/reka-mira/ui/form/FormLabel.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { LabelProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Label } from '@/registry/bases/reka/ui/label'\nimport { useFormField } from './useFormField'\n\nconst props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()\n\nconst { error, formItemId } = useFormField()\n</script>\n\n<template>\n  <Label\n    data-slot=\"form-label\"\n    :data-error=\"!!error\"\n    :class=\"cn(\n      'data-[error=true]:text-destructive',\n      props.class,\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { LabelProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Label } from '@/styles/reka-mira/ui/label'\nimport { useFormField } from './useFormField'\n\nconst props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()\n\nconst { error, formItemId } = useFormField()\n</script>\n\n<template>\n  <Label\n    data-slot=\"form-label\"\n    :data-error=\"!!error\"\n    :class=\"cn(\n      'data-[error=true]:text-destructive',\n      props.class,\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n",
       "type": "registry:ui"
     },
     {

@@ -30,6 +30,11 @@ const SOURCE_UI_DIR = path.join('registry', 'bases', SOURCE_BASE, 'ui')
 const STYLES_CSS_DIR = path.join('registry', 'styles')
 const OUTPUT_BASE_DIR = 'styles'
 
+// Internal import prefix that points at the source-of-truth components.
+// Per-style outputs must reference their own sibling files instead of the
+// shared base, so we rewrite this prefix to `@/styles/reka-{style}/` below.
+const SOURCE_IMPORT_PREFIX = `@/registry/bases/${SOURCE_BASE}/`
+
 const TRANSFORMABLE_EXTENSIONS = new Set(['.vue', '.ts', '.tsx', '.js', '.jsx'])
 // Files inside source dirs that we never want to ship as part of a style output.
 const EXCLUDED_FILENAMES = new Set(['_registry.ts'])
@@ -77,6 +82,8 @@ export async function buildStyles() {
     await rimraf(outDir)
     await fs.mkdir(outDir, { recursive: true })
 
+    const targetImportPrefix = `@/${OUTPUT_BASE_DIR}/${SOURCE_BASE}-${style.name}/`
+
     let transformedFiles = 0
     let totalReplacements = 0
 
@@ -108,6 +115,12 @@ export async function buildStyles() {
       }
       else {
         outContent = source
+      }
+
+      // Rewrite internal references from the shared base to this style's
+      // own directory so generated files are self-contained.
+      if (outContent.includes(SOURCE_IMPORT_PREFIX)) {
+        outContent = outContent.split(SOURCE_IMPORT_PREFIX).join(targetImportPrefix)
       }
 
       const destAbs = path.join(outDir, relPath)
