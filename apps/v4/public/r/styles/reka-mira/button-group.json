@@ -16,7 +16,7 @@
     },
     {
       "path": "styles/reka-mira/ui/button-group/ButtonGroupSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { SeparatorProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { Separator } from '@/registry/new-york-v4/ui/separator'\n\nconst props = withDefaults(defineProps<SeparatorProps & { class?: HTMLAttributes['class'] }>(), {\n  orientation: 'vertical',\n})\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <Separator\n    data-slot=\"button-group-separator\"\n    v-bind=\"delegatedProps\"\n    :orientation=\"props.orientation\"\n    :class=\"cn(\n      'bg-input relative self-stretch data-horizontal:mx-px data-horizontal:w-auto data-vertical:my-px data-vertical:h-auto',\n      props.class,\n    )\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { SeparatorProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { Separator } from '@/registry/bases/reka/ui/separator'\n\nconst props = withDefaults(defineProps<SeparatorProps & { class?: HTMLAttributes['class'] }>(), {\n  orientation: 'vertical',\n})\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <Separator\n    data-slot=\"button-group-separator\"\n    v-bind=\"delegatedProps\"\n    :orientation=\"props.orientation\"\n    :class=\"cn(\n      'bg-input relative self-stretch data-horizontal:mx-px data-horizontal:w-auto data-vertical:my-px data-vertical:h-auto',\n      props.class,\n    )\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {

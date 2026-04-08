@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "vue"
 import { cn } from "@/lib/utils"
 import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/bases/reka/ui/button"
 import { useSidebar } from "./utils"
 
 const props = defineProps<{
