@@ -14,7 +14,7 @@ import {
   getRegistryStyles,
 } from '@/src/registry/api'
 import { buildUrlAndHeadersForRegistryItem } from '@/src/registry/builder'
-import { configWithDefaults } from '@/src/registry/config'
+import { composeStyleId, configWithDefaults } from '@/src/registry/config'
 import {
   BASE_COLORS,
   BASES,
@@ -672,8 +672,7 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
 
   return rawConfigSchema.parse({
     $schema: 'https://shadcn-vue.com/schema.json',
-    base,
-    style,
+    style: composeStyleId(base, style),
     font,
     iconLibrary,
     tailwind: {
@@ -698,7 +697,7 @@ async function promptForMinimalConfig(
   defaultConfig: Config,
   opts: z.infer<typeof initOptionsSchema>,
 ) {
-  let base = opts.base ?? defaultConfig.base ?? 'reka'
+  let base = opts.base ?? 'reka'
   let style = opts.style ?? defaultConfig.style
   let iconLibrary = opts.iconLibrary ?? defaultConfig.iconLibrary ?? 'lucide'
   let font = opts.font ?? defaultConfig.font ?? 'inter'
@@ -784,8 +783,7 @@ async function promptForMinimalConfig(
 
   return rawConfigSchema.parse({
     $schema: defaultConfig?.$schema,
-    base,
-    style,
+    style: composeStyleId(base, style),
     font,
     iconLibrary,
     tailwind: {

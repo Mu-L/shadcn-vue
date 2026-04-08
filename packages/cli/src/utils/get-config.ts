@@ -266,7 +266,6 @@ export function createConfig(partial?: DeepPartial<Config>): Config {
       composables: '',
     },
     style: '',
-    base: 'reka',
     font: 'inter',
     tailwind: {
       config: '',
