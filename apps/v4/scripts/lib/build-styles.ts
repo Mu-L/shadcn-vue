@@ -7,6 +7,7 @@ import { transform } from 'vue-metamorph'
 import { STYLES } from '@/registry/styles'
 import { createStyleMap } from './create-style-map'
 import { makeExpandCnPlugin } from './expand-cn-classes'
+import { makeTransformIconsPlugin } from './transform-icons'
 
 const execAsync = promisify(exec)
 
@@ -76,7 +77,6 @@ export async function buildStyles() {
     await rimraf(outDir)
     await fs.mkdir(outDir, { recursive: true })
 
-    const plugin = makeExpandCnPlugin(styleMap)
     let transformedFiles = 0
     let totalReplacements = 0
 
@@ -92,7 +92,13 @@ export async function buildStyles() {
 
       let outContent: string
       if (TRANSFORMABLE_EXTENSIONS.has(ext)) {
-        const result = transform(source, filename, [plugin])
+        // Build a fresh plugins array per file because transformIcons collects
+        // icon names in closure state — must not leak across files.
+        const plugins = [
+          makeExpandCnPlugin(styleMap),
+          makeTransformIconsPlugin(),
+        ]
+        const result = transform(source, filename, plugins)
         outContent = result.code
         const replacementCount = result.stats.reduce((acc, [, n]) => acc + n, 0)
         if (replacementCount > 0) {
