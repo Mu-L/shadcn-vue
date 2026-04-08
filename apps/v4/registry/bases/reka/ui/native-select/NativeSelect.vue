@@ -47,8 +47,8 @@ const delegatedProps = reactiveOmit(props, "class", "size")
     </select>
     <IconPlaceholder
       lucide="ChevronDownIcon"
-      tabler="IconChevronDown"
-      hugeicons="ArrowDown01Icon"
+      tabler="IconSelector"
+      hugeicons="UnfoldMoreIcon"
       phosphor="CaretDownIcon"
       remixicon="RiArrowDownSLine"
       class="cn-native-select-icon pointer-events-none absolute select-none"

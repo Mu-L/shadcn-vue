@@ -21,6 +21,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     v-bind="forwarded"
     :container-class="cn('cn-input-otp flex items-center has-disabled:opacity-50', props.class)"
     data-slot="input-otp"
+    :spellcheck="false"
     class="cn-input-otp-input disabled:cursor-not-allowed"
   >
     <slot v-bind="slotProps" />
