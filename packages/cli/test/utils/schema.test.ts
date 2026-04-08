@@ -154,6 +154,64 @@ describe('rawConfigSchema', () => {
     expect(() => rawConfigSchema.parse(invalidConfig)).toThrow()
   })
 
+  it('accepts optional rtl flag', () => {
+    const config = {
+      style: 'reka-vega',
+      typescript: true,
+      tailwind: {
+        css: 'src/globals.css',
+        baseColor: 'neutral',
+        cssVariables: true,
+      },
+      rtl: true,
+      aliases: {
+        components: '@/components',
+        utils: '@/lib/utils',
+      },
+    }
+
+    const result = rawConfigSchema.parse(config)
+    expect(result.rtl).toBe(true)
+  })
+
+  it('rtl is optional and defaults to undefined when omitted', () => {
+    const config = {
+      style: 'reka-vega',
+      typescript: true,
+      tailwind: {
+        css: 'src/globals.css',
+        baseColor: 'neutral',
+        cssVariables: true,
+      },
+      aliases: {
+        components: '@/components',
+        utils: '@/lib/utils',
+      },
+    }
+
+    const result = rawConfigSchema.parse(config)
+    expect(result.rtl).toBeUndefined()
+  })
+
+  it('rejects non-boolean rtl values', () => {
+    const config = {
+      style: 'reka-vega',
+      typescript: true,
+      tailwind: {
+        css: 'src/globals.css',
+        baseColor: 'neutral',
+        cssVariables: true,
+      },
+      rtl: 'yes',
+      aliases: {
+        components: '@/components',
+        utils: '@/lib/utils',
+      },
+    }
+
+    expect(() => rawConfigSchema.parse(config)).toThrow()
+  })
+
   it('rejects invalid menuAccent values', () => {
     const invalidConfig = {
       style: 'vega',

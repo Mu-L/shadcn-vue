@@ -39,6 +39,7 @@ export const rawConfigSchema = z
       prefix: z.string().default("").optional(),
     }),
     iconLibrary: z.string().optional(),
+    rtl: z.boolean().default(false).optional(),
     menuColor: z.enum(["default", "inverted"]).default("default").optional(),
     menuAccent: z.enum(["subtle", "bold"]).default("subtle").optional(),
     aliases: z.object({

@@ -205,10 +205,14 @@ export const initOptionsSchema = z.object({
       },
     ),
   baseStyle: z.boolean(),
+  monorepo: z.boolean().optional(),
+  reinstall: z.boolean().optional(),
+  rtl: z.boolean().optional(),
 })
 
 export const init = new Command()
   .name('init')
+  .alias('create')
   .description('initialize your project and install dependencies')
   .argument('[components...]', 'names, url or local path to component')
   .option(
@@ -265,7 +269,35 @@ export const init = new Command()
   .option('--css-variables', 'use css variables for theming.', true)
   .option('--no-css-variables', 'do not use css variables for theming.')
   .option('--no-base-style', 'do not install the base shadcn style.')
+  .option('-n, --name <name>', 'the name for the new project.')
+  // .option('--monorepo', 'scaffold a monorepo project.')
+  // .option('--no-monorepo', 'skip the monorepo prompt.')
+  .option('--reinstall', 're-install existing UI components.')
+  .option('--no-reinstall', 'do not re-install existing UI components.')
+  .option('--rtl', 'enable RTL support.')
+  .option('--no-rtl', 'disable RTL support.')
   .action(async (components, opts) => {
+    // NOTE: --monorepo is not yet supported in shadcn-vue since Vue-specific
+    // monorepo templates aren't available. We keep the flag for parity so
+    // users can discover it and we fail fast with a clear message.
+    if (opts.monorepo === true) {
+      logger.break()
+      logger.warn(
+        'The --monorepo flag is not yet supported in shadcn-vue.',
+      )
+      process.exit(1)
+    }
+
+    // NOTE: --rtl is wired through to the config (`rtl: true`) but the
+    // shadcn-vue component templates don't yet ship with RTL-aware classes.
+    // Users can run `npx shadcn-vue migrate rtl` after init to transform
+    // installed components.
+    if (opts.rtl === true) {
+      logger.info(
+        'RTL support enabled in config. Run `shadcn-vue migrate rtl` to transform installed components.',
+      )
+    }
+
     try {
       // Resolve and apply preset (CLI flags take precedence over preset values).
       if (opts.preset) {
@@ -675,6 +707,7 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
     style: composeStyleId(base, style),
     font,
     iconLibrary,
+    rtl: opts?.rtl ?? false,
     tailwind: {
       config: tailwindConfig,
       css: tailwindCss,
@@ -786,6 +819,7 @@ async function promptForMinimalConfig(
     style: composeStyleId(base, style),
     font,
     iconLibrary,
+    rtl: opts.rtl ?? defaultConfig.rtl ?? false,
     tailwind: {
       ...defaultConfig?.tailwind,
       baseColor,
