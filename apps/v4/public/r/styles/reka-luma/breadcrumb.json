@@ -27,7 +27,7 @@
     },
     {
       "path": "styles/reka-luma/ui/breadcrumb/BreadcrumbList.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <ol\n    data-slot=\"breadcrumb-list\"\n    :class=\"cn('text-muted-foreground gap-1.5 text-sm sm:gap-2.5 flex flex-wrap items-center break-words', props.class)\"\n  >\n    <slot />\n  </ol>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <ol\n    data-slot=\"breadcrumb-list\"\n    :class=\"cn('text-muted-foreground gap-1.5 text-sm sm:gap-2.5 flex flex-wrap items-center wrap-break-word', props.class)\"\n  >\n    <slot />\n  </ol>\n</template>\n",
       "type": "registry:ui"
     },
     {

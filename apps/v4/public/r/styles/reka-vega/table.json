@@ -48,7 +48,7 @@
     },
     {
       "path": "styles/reka-vega/ui/table/TableRow.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <tr\n    data-slot=\"table-row\"\n    :class=\"cn('hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors', props.class)\"\n  >\n    <slot />\n  </tr>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <tr\n    data-slot=\"table-row\"\n    :class=\"cn('hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors has-aria-expanded:bg-muted/50', props.class)\"\n  >\n    <slot />\n  </tr>\n</template>\n",
       "type": "registry:ui"
     },
     {

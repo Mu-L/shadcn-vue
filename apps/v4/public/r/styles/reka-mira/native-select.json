@@ -16,12 +16,12 @@
     },
     {
       "path": "styles/reka-mira/ui/native-select/NativeSelectOptGroup.vue",
-      "content": "<!-- @fallthroughAttributes true -->\n<!-- @strictTemplates true -->\n\n<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <optgroup data-slot=\"native-select-optgroup\" :class=\"cn('bg-popover text-popover-foreground', props.class)\">\n    <slot />\n  </optgroup>\n</template>\n",
+      "content": "<!-- @fallthroughAttributes true -->\n<!-- @strictTemplates true -->\n\n<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <optgroup data-slot=\"native-select-optgroup\" :class=\"cn(props.class)\">\n    <slot />\n  </optgroup>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-mira/ui/native-select/NativeSelectOption.vue",
-      "content": "<!-- @fallthroughAttributes true -->\n<!-- @strictTemplates true -->\n\n<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <option data-slot=\"native-select-option\" :class=\"cn('bg-popover text-popover-foreground', props.class)\">\n    <slot />\n  </option>\n</template>\n",
+      "content": "<!-- @fallthroughAttributes true -->\n<!-- @strictTemplates true -->\n\n<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <option data-slot=\"native-select-option\" :class=\"cn(props.class)\">\n    <slot />\n  </option>\n</template>\n",
       "type": "registry:ui"
     },
     {

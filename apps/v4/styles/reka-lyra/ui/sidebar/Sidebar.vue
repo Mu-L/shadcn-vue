@@ -73,6 +73,8 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
       )"
     />
     <div
+      data-slot="sidebar-container"
+      :data-side="side"
       :class="cn(
         'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',
         side === 'left'

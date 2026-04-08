@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "styles/reka-vega/ui/input-otp/InputOTP.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { OTPInputEmits, OTPInputProps } from 'vue-input-otp'\nimport { reactiveOmit } from '@vueuse/core'\nimport { useForwardPropsEmits } from 'reka-ui'\nimport { OTPInput } from 'vue-input-otp'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<OTPInputProps & { class?: HTMLAttributes['class'] }>()\n\nconst emits = defineEmits<OTPInputEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <OTPInput\n    v-slot=\"slotProps\"\n    v-bind=\"forwarded\"\n    :container-class=\"cn('gap-2 flex items-center has-disabled:opacity-50', props.class)\"\n    data-slot=\"input-otp\"\n    class=\"disabled:cursor-not-allowed\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </OTPInput>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { OTPInputEmits, OTPInputProps } from 'vue-input-otp'\nimport { reactiveOmit } from '@vueuse/core'\nimport { useForwardPropsEmits } from 'reka-ui'\nimport { OTPInput } from 'vue-input-otp'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<OTPInputProps & { class?: HTMLAttributes['class'] }>()\n\nconst emits = defineEmits<OTPInputEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <OTPInput\n    v-slot=\"slotProps\"\n    v-bind=\"forwarded\"\n    :container-class=\"cn('gap-2 flex items-center has-disabled:opacity-50', props.class)\"\n    data-slot=\"input-otp\"\n    :spellcheck=\"false\"\n    class=\"disabled:cursor-not-allowed\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </OTPInput>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "path": "styles/reka-vega/ui/input-otp/InputOTPSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { reactiveOmit } from '@vueuse/core'\nimport { MinusIcon } from 'lucide-vue-next'\nimport { useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-separator\"\n    role=\"separator\"\n    v-bind=\"forwarded\"\n    :class=\"cn('[&_svg:not([class*=\\'size-\\'])]:size-4 flex items-center', props.class)\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { reactiveOmit } from '@vueuse/core'\nimport { MinusIcon } from 'lucide-vue-next'\nimport { useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-separator\"\n    role=\"separator\"\n    v-bind=\"forwarded\"\n    :class=\"cn('[&_svg:not([class*=size-])]:size-4 flex items-center', props.class)\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
