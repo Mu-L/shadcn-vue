@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+
+import { PanelLeftIcon } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
-import { IconPlaceholder } from '@/registry/bases/reka/components/icon-placeholder'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { useSidebar } from './utils'
 
@@ -21,13 +22,7 @@ const { toggleSidebar } = useSidebar()
     :class="cn('', props.class)"
     @click="toggleSidebar"
   >
-    <IconPlaceholder
-      lucide="PanelLeftIcon"
-      tabler="IconLayoutSidebar"
-      hugeicons="SidebarLeftIcon"
-      phosphor="SidebarIcon"
-      remixicon="RiSideBarLine"
-    />
+    <PanelLeftIcon class="cn-rtl-flip" />
     <span class="sr-only">Toggle Sidebar</span>
   </Button>
 </template>

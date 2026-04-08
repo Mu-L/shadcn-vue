@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { PaginationLastProps } from 'reka-ui'
+
 import type { HTMLAttributes } from 'vue'
 import type { ButtonVariants } from '@/registry/bases/reka/ui/button'
 import { reactiveOmit } from '@vueuse/core'
+import { ChevronsRightIcon } from 'lucide-vue-next'
 import { PaginationLast, useForwardProps } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import { IconPlaceholder } from '@/registry/bases/reka/components/icon-placeholder'
 import { buttonVariants } from '@/registry/bases/reka/ui/button'
 
 const props = withDefaults(defineProps<PaginationLastProps & {
@@ -27,14 +28,7 @@ const forwarded = useForwardProps(delegatedProps)
   >
     <slot>
       <span class="hidden sm:block">Last</span>
-      <IconPlaceholder
-        lucide="ChevronsRightIcon"
-        tabler="IconChevronsRight"
-        hugeicons="ArrowRightDoubleIcon"
-        phosphor="CaretDoubleRightIcon"
-        remixicon="RiArrowRightDoubleLine"
-        data-icon="inline-end"
-      />
+      <ChevronsRightIcon data-icon="inline-end" />
     </slot>
   </PaginationLast>
 </template>

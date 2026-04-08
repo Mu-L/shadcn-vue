@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<{
 }
 & WithClassAsProps>(), {
   variant: "outline",
-  size: "icon",
+  size: "icon-sm",
 })
 
 const { orientation, canScrollNext, scrollNext } = useCarousel()
@@ -23,7 +23,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     data-slot="carousel-next"
     :disabled="!canScrollNext"
     :class="cn(
-      'absolute size-8 rounded-full',
+      'cn-carousel-next absolute touch-manipulation',
       orientation === 'horizontal'
         ? 'top-1/2 -right-12 -translate-y-1/2'
         : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
@@ -34,8 +34,15 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     @click="scrollNext"
   >
     <slot>
-      <IconPlaceholder lucide="ArrowRightIcon" tabler="IconArrowRight" hugeicons="ArrowRight01Icon" phosphor="ArrowRightIcon" remixicon="RiArrowRightLine" />
-      <span class="sr-only">Next Slide</span>
+      <IconPlaceholder
+        lucide="ChevronRightIcon"
+        tabler="IconChevronRight"
+        hugeicons="ArrowRight01Icon"
+        phosphor="CaretRightIcon"
+        remixicon="RiArrowRightSLine"
+        class="cn-rtl-flip"
+      />
+      <span class="sr-only">Next slide</span>
     </slot>
   </Button>
 </template>

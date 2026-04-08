@@ -29,7 +29,7 @@ const delegatedProps = reactiveOmit(props, "class", "size")
 
 <template>
   <div
-    class="group/native-select relative w-fit has-[select:disabled]:opacity-50"
+    class="cn-native-select-wrapper group/native-select relative w-fit has-[select:disabled]:opacity-50"
     data-slot="native-select-wrapper"
     :data-size="props.size ?? 'default'"
   >

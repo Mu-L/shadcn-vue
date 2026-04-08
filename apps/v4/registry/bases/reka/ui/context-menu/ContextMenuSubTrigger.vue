@@ -33,7 +33,7 @@ const forwardedProps = useForwardProps(delegatedProps)
       hugeicons="ArrowRight01Icon"
       phosphor="CaretRightIcon"
       remixicon="RiArrowRightSLine"
-      class="ml-auto"
+      class="cn-rtl-flip ml-auto"
     />
   </ContextMenuSubTrigger>
 </template>
