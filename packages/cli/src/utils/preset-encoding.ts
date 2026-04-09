@@ -2,7 +2,7 @@
  * Deterministic, DB-free preset decoding — mirrors apps/v4/lib/preset-encoding.ts.
  *
  * Each config field is stored as a 1-byte index into a known value array.
- * 9 bytes → ~13 base62 characters.
+ * 10 bytes → ~14 base62 characters.
  *
  * IMPORTANT: Never reorder or remove items from these arrays.
  * Only append new values to keep existing preset IDs valid.
@@ -36,41 +36,41 @@ const FONT_VALUES = [
   'playfair-display',
 ]
 
+const THEME_VALUES = [
+  'neutral',
+  'stone',
+  'zinc',
+  'gray',
+  'amber',
+  'blue',
+  'cyan',
+  'emerald',
+  'fuchsia',
+  'green',
+  'indigo',
+  'lime',
+  'orange',
+  'pink',
+  'purple',
+  'red',
+  'rose',
+  'sky',
+  'teal',
+  'violet',
+  'yellow',
+]
+
 const FIELDS = [
   { key: 'style', values: ['vega', 'nova', 'maia', 'lyra', 'mira', 'luma'] },
   { key: 'baseColor', values: ['neutral', 'stone', 'zinc', 'gray'] },
-  {
-    key: 'theme',
-    values: [
-      'neutral',
-      'stone',
-      'zinc',
-      'gray',
-      'amber',
-      'blue',
-      'cyan',
-      'emerald',
-      'fuchsia',
-      'green',
-      'indigo',
-      'lime',
-      'orange',
-      'pink',
-      'purple',
-      'red',
-      'rose',
-      'sky',
-      'teal',
-      'violet',
-      'yellow',
-    ],
-  },
+  { key: 'theme', values: THEME_VALUES },
   { key: 'font', values: FONT_VALUES },
   { key: 'fontHeading', values: ['inherit', ...FONT_VALUES] },
   { key: 'radius', values: ['default', 'none', 'small', 'medium', 'large'] },
   { key: 'iconLibrary', values: ['lucide', 'tabler', 'hugeicons', 'phosphor', 'remixicon'] },
   { key: 'menuColor', values: ['default', 'default-translucent', 'inverted', 'inverted-translucent'] },
   { key: 'menuAccent', values: ['subtle', 'bold'] },
+  { key: 'chartColor', values: THEME_VALUES },
 ] as const
 
 const BASE62 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -101,6 +101,7 @@ export interface DecodedPreset {
   iconLibrary: string
   menuColor: string
   menuAccent: string
+  chartColor: string
 }
 
 /**
@@ -121,5 +122,5 @@ export function decodePreset(encoded: string): DecodedPreset | null {
 
 /** Returns true if the string looks like a base62 encoded preset (all base62 chars, reasonable length). */
 export function isEncodedPreset(value: string): boolean {
-  return value.length >= 8 && value.length <= 16 && [...value].every(ch => BASE62.includes(ch))
+  return value.length >= 8 && value.length <= 18 && [...value].every(ch => BASE62.includes(ch))
 }

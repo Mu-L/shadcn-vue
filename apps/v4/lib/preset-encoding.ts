@@ -4,10 +4,12 @@ import { FONT_HEADING_OPTIONS, FONTS } from '@/lib/fonts'
  * Deterministic, DB-free preset encoding.
  *
  * Each config field is stored as a 1-byte index into its known value array.
- * 9 bytes → ~13 base62 characters.
+ * 10 bytes → ~14 base62 characters.
  *
  * IMPORTANT: Never reorder or remove items from the arrays imported below.
  * Only append new values to keep existing preset IDs valid.
+ *
+ * MUST stay in sync with packages/cli/src/utils/preset-encoding.ts.
  */
 import { BASE_COLORS, MENU_ACCENTS, MENU_COLORS, RADII, STYLES, THEMES } from '@/registry/config'
 
@@ -23,9 +25,17 @@ const FIELDS = [
   { key: 'iconLibrary', values: ICON_LIBRARY_NAMES },
   { key: 'menuColor', values: MENU_COLORS.map(m => m.value) },
   { key: 'menuAccent', values: MENU_ACCENTS.map(a => a.value) },
+  { key: 'chartColor', values: THEMES.map(t => t.name) },
 ] as const
 
 const BASE62 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+
+export const PRESET_FIELD_KEYS = FIELDS.map(f => f.key)
+export type PresetFieldKey = (typeof FIELDS)[number]['key']
+
+export function isEncodedPreset(value: string): boolean {
+  return value.length >= 8 && value.length <= 18 && [...value].every(ch => BASE62.includes(ch))
+}
 
 function bytesToBase62(bytes: number[]): string {
   let num = 0n

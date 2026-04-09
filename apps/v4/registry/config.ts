@@ -83,6 +83,7 @@ export const designSystemConfigSchema = z
       .default("neutral"),
     theme: z.enum(THEMES.map(t => t.name) as [ThemeName, ...ThemeName[]]),
     font: z.enum(fontValues).default("inter"),
+    fontHeading: z.enum(fontValues).default("inherit"),
     item: z.string().optional(),
     menuAccent: z
       .enum(
@@ -100,7 +101,7 @@ export const designSystemConfigSchema = z
     radius: z
       .enum(RADII.map(r => r.name) as [RadiusValue, ...RadiusValue[]])
       .default("default"),
-    template: z.enum(["next", "start", "vite"]).default("next").optional(),
+    template: z.enum(["nuxt", "vite", "laravel", "astro"]).default("nuxt").optional(),
   })
   .refine(
     (data) => {
@@ -117,16 +118,17 @@ export type DesignSystemConfig = z.infer<typeof designSystemConfigSchema>
 
 export const DEFAULT_CONFIG: DesignSystemConfig = {
   base: "reka",
-  style: "luma",
+  style: "nova",
   baseColor: "neutral",
-  theme: "blue",
-  iconLibrary: "hugeicons",
-  font: "geist",
-  item: "Item",
+  theme: "neutral",
+  iconLibrary: "lucide",
+  font: "inter",
+  fontHeading: "inherit",
+  item: "preview02",
   menuAccent: "subtle",
-  menuColor: "inverted-translucent",
+  menuColor: "default",
   radius: "default",
-  template: "next",
+  template: "nuxt",
 }
 
 export type Preset = {
@@ -146,6 +148,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "lucide",
     font: "inter",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -161,6 +164,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "hugeicons",
     font: "inter",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -176,6 +180,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "hugeicons",
     font: "figtree",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -191,6 +196,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "hugeicons",
     font: "jetbrains-mono",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -206,6 +212,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "hugeicons",
     font: "inter",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -221,6 +228,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "lucide",
     font: "inter",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
