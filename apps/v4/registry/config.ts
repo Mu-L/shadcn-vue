@@ -83,7 +83,9 @@ export const designSystemConfigSchema = z
       .default("neutral"),
     theme: z.enum(THEMES.map(t => t.name) as [ThemeName, ...ThemeName[]]),
     font: z.enum(fontValues).default("inter"),
-    fontHeading: z.enum(fontValues).default("inherit"),
+    fontHeading: z
+      .enum(["inherit", ...fontValues] as [string, ...string[]])
+      .default("inherit"),
     item: z.string().optional(),
     menuAccent: z
       .enum(
@@ -321,7 +323,9 @@ export function buildRegistryTheme(config: DesignSystemConfig) {
 }
 
 // Builds a registry:base item from a design system config.
-export function buildRegistryBase(config: DesignSystemConfig) {
+export function buildRegistryBase(
+  config: DesignSystemConfig & { rtl?: boolean },
+) {
   const baseItem = getBase(config.base)
   const iconLibraryItem = getIconLibrary(config.iconLibrary)
 
@@ -342,10 +346,35 @@ export function buildRegistryBase(config: DesignSystemConfig) {
     ...iconLibraryItem.packages,
   ]
 
+  // Fonts are applied CLI-side via getFontImport(config.font) from the
+  // local FONTS constant — shadcn-vue's registry does not publish font-*
+  // items, so we intentionally do not add them as registryDependencies.
   const registryDependencies = ["utils"]
 
-  if (config.font) {
-    registryDependencies.push(`font-${config.font}`)
+  // Resolve font metadata from the web registry so the emitted
+  // registry:base item carries both the @theme CSS variable and a body rule
+  // that actually applies the font — the CLI's addFontImportPlugin only
+  // handles the Google Fonts @import url(...) line.
+  const fontItem = fonts.find(f => f.name === `font-${config.font}`)
+
+  const themeVars: Record<string, string> = {
+    ...(registryTheme.cssVars?.theme as Record<string, string> | undefined),
+  }
+  const bodyRules: Record<string, Record<string, unknown>> = {
+    "@apply bg-background text-foreground": {},
+  }
+  if (fontItem) {
+    themeVars[fontItem.font.variable] = fontItem.font.family
+    // Map the font's target variable to a Tailwind utility class.
+    // shadcn-vue fonts all target --font-sans today (jetbrains-mono included),
+    // but we handle --font-mono / --font-serif for future-proofing.
+    const applyClass
+      = fontItem.font.variable === "--font-mono"
+        ? "font-mono"
+        : fontItem.font.variable === "--font-serif"
+          ? "font-serif"
+          : "font-sans"
+    bodyRules[`@apply ${applyClass}`] = {}
   }
 
   return {
@@ -355,6 +384,8 @@ export function buildRegistryBase(config: DesignSystemConfig) {
     config: {
       style: `${config.base}-${config.style}`,
       iconLibrary: iconLibraryItem.name,
+      font: config.font,
+      rtl: config.rtl ?? false,
       menuColor: config.menuColor,
       menuAccent: config.menuAccent,
       tailwind: {
@@ -363,13 +394,16 @@ export function buildRegistryBase(config: DesignSystemConfig) {
     },
     dependencies,
     registryDependencies,
-    cssVars: registryTheme.cssVars,
+    cssVars: {
+      ...registryTheme.cssVars,
+      theme: Object.keys(themeVars).length > 0 ? themeVars : undefined,
+    },
     css: {
       "@import \"tw-animate-css\"": {},
       "@import \"shadcn/tailwind.css\"": {},
       "@layer base": {
         "*": { "@apply border-border outline-ring/50": {} },
-        "body": { "@apply bg-background text-foreground": {} },
+        "body": bodyRules,
       },
     },
   }
