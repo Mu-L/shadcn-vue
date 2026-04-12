@@ -14,8 +14,8 @@ import process from 'node:process'
 const { CLOUDFLARE_API_TOKEN, CLOUDFLARE_ZONE_ID } = process.env
 
 if (!CLOUDFLARE_API_TOKEN || !CLOUDFLARE_ZONE_ID) {
-  console.error('Missing CLOUDFLARE_API_TOKEN or CLOUDFLARE_ZONE_ID — cache purge skipped!')
-  process.exit(1)
+  console.error('Missing CLOUDFLARE_API_TOKEN or CLOUDFLARE_ZONE_ID — skipping cache purge.')
+  process.exit(0)
 }
 
 console.log('Purging Cloudflare edge cache...')
