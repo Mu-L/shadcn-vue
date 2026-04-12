@@ -30,6 +30,9 @@ const DEPENDENCIES = new Map<string, string[]>([
 ])
 
 const REGISTRY_DEPENDENCY = '@/'
+const INTERNAL_REGISTRY_DEPENDENCY_SOURCES = new Set([
+  '@/registry/bases/reka/components/icon-placeholder',
+])
 
 function sanitizeString(input: string): string {
   return input
@@ -370,7 +373,11 @@ async function getFileDependencies(filename: string, sourceCode: string) {
       peerDeps.forEach(dep => dependencies.add(dep))
     }
 
-    if (source.startsWith(REGISTRY_DEPENDENCY) && !source.endsWith('.vue')) {
+    if (
+      source.startsWith(REGISTRY_DEPENDENCY)
+      && !source.endsWith('.vue')
+      && !INTERNAL_REGISTRY_DEPENDENCY_SOURCES.has(source)
+    ) {
       const component = source.split('/').at(-1)!
       if (component !== 'utils')
         registryDependencies.add(component)
