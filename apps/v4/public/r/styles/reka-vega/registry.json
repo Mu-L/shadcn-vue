@@ -284,8 +284,7 @@
       ],
       "registryDependencies": [
         "native-select",
-        "button",
-        "icon-placeholder"
+        "button"
       ],
       "files": [
         {
@@ -388,8 +387,7 @@
         "@vueuse/core"
       ],
       "registryDependencies": [
-        "button",
-        "icon-placeholder"
+        "button"
       ],
       "files": [
         {
@@ -511,7 +509,6 @@
         "@vueuse/core"
       ],
       "registryDependencies": [
-        "icon-placeholder",
         "input-group"
       ],
       "files": [
@@ -701,8 +698,7 @@
         "@vueuse/core"
       ],
       "registryDependencies": [
-        "button",
-        "icon-placeholder"
+        "button"
       ],
       "files": [
         {
@@ -1097,9 +1093,7 @@
         "@vueuse/core",
         "reka-ui"
       ],
-      "registryDependencies": [
-        "icon-placeholder"
-      ],
+      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/input-otp/InputOTP.vue",
@@ -1222,9 +1216,7 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [
-        "icon-placeholder"
-      ],
+      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/menubar/Menubar.vue",
@@ -1299,9 +1291,7 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [
-        "icon-placeholder"
-      ],
+      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/native-select/NativeSelect.vue",
@@ -1328,9 +1318,7 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [
-        "icon-placeholder"
-      ],
+      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/navigation-menu/NavigationMenu.vue",
@@ -1377,9 +1365,7 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [
-        "icon-placeholder"
-      ],
+      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/number-field/NumberField.vue",
@@ -1415,8 +1401,7 @@
         "@vueuse/core"
       ],
       "registryDependencies": [
-        "button",
-        "icon-placeholder"
+        "button"
       ],
       "files": [
         {
@@ -1468,9 +1453,7 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [
-        "icon-placeholder"
-      ],
+      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/pin-input/PinInput.vue",
@@ -1584,8 +1567,7 @@
         "@vueuse/core"
       ],
       "registryDependencies": [
-        "button",
-        "icon-placeholder"
+        "button"
       ],
       "files": [
         {
@@ -1832,7 +1814,6 @@
         "tooltip",
         "skeleton",
         "separator",
-        "icon-placeholder",
         "button"
       ],
       "files": [
@@ -1980,9 +1961,7 @@
       "dependencies": [
         "vue-sonner"
       ],
-      "registryDependencies": [
-        "icon-placeholder"
-      ],
+      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/sonner/Sonner.vue",
@@ -1997,9 +1976,7 @@
     {
       "name": "spinner",
       "type": "registry:ui",
-      "registryDependencies": [
-        "icon-placeholder"
-      ],
+      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/spinner/Spinner.vue",
@@ -2162,9 +2139,7 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [
-        "icon-placeholder"
-      ],
+      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/tags-input/TagsInput.vue",

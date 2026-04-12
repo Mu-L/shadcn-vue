@@ -6,9 +6,7 @@
     "@vueuse/core",
     "reka-ui"
   ],
-  "registryDependencies": [
-    "icon-placeholder"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "styles/reka-vega/ui/input-otp/InputOTP.vue",

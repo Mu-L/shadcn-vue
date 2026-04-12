@@ -5,9 +5,7 @@
     "reka-ui",
     "@vueuse/core"
   ],
-  "registryDependencies": [
-    "icon-placeholder"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "styles/reka-luma/ui/menubar/Menubar.vue",

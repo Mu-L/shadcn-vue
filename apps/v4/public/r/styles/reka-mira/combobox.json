@@ -6,7 +6,6 @@
     "@vueuse/core"
   ],
   "registryDependencies": [
-    "icon-placeholder",
     "input-group"
   ],
   "files": [

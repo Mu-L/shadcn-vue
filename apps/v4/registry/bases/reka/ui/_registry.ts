@@ -1092,8 +1092,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
       "reka-ui",
     ],
-    registryDependencies: [
-    ],
     files: [
       {
         path: "ui/input-otp/InputOTP.vue",
@@ -1216,8 +1214,6 @@ export const ui: Registry["items"] = [
       "reka-ui",
       "@vueuse/core",
     ],
-    registryDependencies: [
-    ],
     files: [
       {
         path: "ui/menubar/Menubar.vue",
@@ -1292,8 +1288,6 @@ export const ui: Registry["items"] = [
       "reka-ui",
       "@vueuse/core",
     ],
-    registryDependencies: [
-    ],
     files: [
       {
         path: "ui/native-select/NativeSelect.vue",
@@ -1319,8 +1313,6 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
-    ],
-    registryDependencies: [
     ],
     files: [
       {
@@ -1367,8 +1359,6 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
-    ],
-    registryDependencies: [
     ],
     files: [
       {
@@ -1456,8 +1446,6 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
-    ],
-    registryDependencies: [
     ],
     files: [
       {
@@ -1966,8 +1954,6 @@ export const ui: Registry["items"] = [
     dependencies: [
       "vue-sonner",
     ],
-    registryDependencies: [
-    ],
     files: [
       {
         path: "ui/sonner/Sonner.vue",
@@ -1982,8 +1968,6 @@ export const ui: Registry["items"] = [
   {
     name: "spinner",
     type: "registry:ui",
-    registryDependencies: [
-    ],
     files: [
       {
         path: "ui/spinner/Spinner.vue",
@@ -2145,8 +2129,6 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
-    ],
-    registryDependencies: [
     ],
     files: [
       {

@@ -4,9 +4,7 @@
   "dependencies": [
     "vue-sonner"
   ],
-  "registryDependencies": [
-    "icon-placeholder"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "styles/reka-vega/ui/sonner/Sonner.vue",
