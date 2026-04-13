@@ -5,7 +5,6 @@
     "reka-ui",
     "@vueuse/core"
   ],
-  "registryDependencies": [],
   "files": [
     {
       "path": "styles/reka-nova/ui/navigation-menu/NavigationMenu.vue",

@@ -5,7 +5,6 @@
     "reka-ui",
     "@vueuse/core"
   ],
-  "registryDependencies": [],
   "files": [
     {
       "path": "styles/reka-maia/ui/pin-input/PinInput.vue",

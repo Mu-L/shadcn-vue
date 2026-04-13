@@ -1093,7 +1093,6 @@
         "@vueuse/core",
         "reka-ui"
       ],
-      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/input-otp/InputOTP.vue",
@@ -1216,7 +1215,6 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/menubar/Menubar.vue",
@@ -1291,7 +1289,6 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/native-select/NativeSelect.vue",
@@ -1318,7 +1315,6 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/navigation-menu/NavigationMenu.vue",
@@ -1365,7 +1361,6 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/number-field/NumberField.vue",
@@ -1453,7 +1448,6 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/pin-input/PinInput.vue",
@@ -1961,7 +1955,6 @@
       "dependencies": [
         "vue-sonner"
       ],
-      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/sonner/Sonner.vue",
@@ -1976,7 +1969,6 @@
     {
       "name": "spinner",
       "type": "registry:ui",
-      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/spinner/Spinner.vue",
@@ -2139,7 +2131,6 @@
         "reka-ui",
         "@vueuse/core"
       ],
-      "registryDependencies": [],
       "files": [
         {
           "path": "styles/reka-vega/ui/tags-input/TagsInput.vue",
@@ -2256,6 +2247,18 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "registry/bases/reka/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "registryDependencies": [],
+      "dependencies": []
     }
   ]
 }

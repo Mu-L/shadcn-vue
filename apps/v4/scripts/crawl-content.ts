@@ -27,6 +27,8 @@ const DEPENDENCIES = new Map<string, string[]>([
   // TODO: remove version tag after vee-validate v5
   ['vee-validate', ['@vee-validate/zod', 'zod@3.25.76']],
   ['vue-input-otp', []],
+  ['clsx', []],
+  ['tailwind-merge', []],
 ])
 
 const REGISTRY_DEPENDENCY = '@/'
@@ -256,6 +258,41 @@ export async function crawlComposables(rootPath: string) {
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: 'utf8' })
     const relativePath = join('composables', dirent.name)
+
+    const file = {
+      path: relativePath,
+      type,
+    }
+    const { dependencies, registryDependencies } = await getFileDependencies(filepath, source)
+
+    registry.push({
+      name,
+      type,
+      files: [file],
+      registryDependencies: Array.from(registryDependencies),
+      dependencies: Array.from(dependencies),
+    })
+  }
+
+  return registry
+}
+
+export async function crawlLib(rootPath: string) {
+  const type = 'registry:lib' as const
+
+  const dir = (await readdir(rootPath, { withFileTypes: true })).sort()
+
+  const registry: RegistryItem[] = []
+
+  for (const dirent of dir) {
+    if (!dirent.isFile() || dirent.name.startsWith('_'))
+      continue
+
+    const [name = ''] = dirent.name.split('.ts')
+
+    const filepath = join(rootPath, dirent.name)
+    const source = await readFile(filepath, { encoding: 'utf8' })
+    const relativePath = join('lib', dirent.name)
 
     const file = {
       path: relativePath,

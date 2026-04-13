@@ -4,7 +4,6 @@
   "dependencies": [
     "vue-sonner"
   ],
-  "registryDependencies": [],
   "files": [
     {
       "path": "styles/reka-lyra/ui/sonner/Sonner.vue",

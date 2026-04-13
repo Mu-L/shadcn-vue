@@ -1308,7 +1308,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/input-otp/InputOTP.vue",
@@ -1457,7 +1457,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/menubar/Menubar.vue",
@@ -1548,7 +1548,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/native-select/NativeSelect.vue",
@@ -1579,7 +1579,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/navigation-menu/NavigationMenu.vue",
@@ -1635,7 +1635,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/number-field/NumberField.vue",
@@ -1737,7 +1737,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/pin-input/PinInput.vue",
@@ -2340,7 +2340,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/sonner/Sonner.vue",
@@ -2361,7 +2361,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/spinner/Spinner.vue",
@@ -2556,7 +2556,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/tags-input/TagsInput.vue",
@@ -5698,32 +5698,16 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
-    "_registry": {
-      name: "_registry",
-      title: "undefined",
-      description: "",
-      type: "registry:composable",
-      registryDependencies: [],
-      files: [
-            {
-                  "path": "registry/bases/reka/lib/composables/_registry.ts",
-                  "type": "registry:composable",
-                  "target": ""
-            }
-      ],
-      categories: undefined,
-      meta: undefined,
-    },
     "utils": {
       name: "utils",
       title: "undefined",
       description: "",
-      type: "registry:composable",
+      type: "registry:lib",
       registryDependencies: [],
       files: [
             {
-                  "path": "registry/bases/reka/lib/composables/utils.ts",
-                  "type": "registry:composable",
+                  "path": "registry/bases/reka/lib/utils.ts",
+                  "type": "registry:lib",
                   "target": ""
             }
       ],

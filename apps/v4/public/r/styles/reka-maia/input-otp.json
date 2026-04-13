@@ -6,7 +6,6 @@
     "@vueuse/core",
     "reka-ui"
   ],
-  "registryDependencies": [],
   "files": [
     {
       "path": "styles/reka-maia/ui/input-otp/InputOTP.vue",

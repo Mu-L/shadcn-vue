@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "spinner",
-  "registryDependencies": [],
   "files": [
     {
       "path": "styles/reka-maia/ui/spinner/Spinner.vue",
