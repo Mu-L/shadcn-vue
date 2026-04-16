@@ -1,7 +1,10 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "utils",
-  "dependencies": [],
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
   "registryDependencies": [],
   "files": [
     {

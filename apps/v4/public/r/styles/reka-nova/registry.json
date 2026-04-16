@@ -2258,7 +2258,10 @@
         }
       ],
       "registryDependencies": [],
-      "dependencies": []
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ]
     }
   ]
 }
