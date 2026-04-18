@@ -18,7 +18,7 @@
     },
     {
       "path": "styles/reka-luma/ui/tabs/TabsList.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { TabsListProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { TabsList } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<TabsListProps & {\n  class?: HTMLAttributes['class']\n  variant?: 'default' | 'line'\n}>(), {\n  variant: 'default',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class', 'variant')\n</script>\n\n<template>\n  <TabsList\n    data-slot=\"tabs-list\"\n    :data-variant=\"variant\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn(\n      'rounded-full p-1 group-data-horizontal/tabs:h-9 group-data-vertical/tabs:rounded-2xl data-[variant=line]:rounded-none group/tabs-list inline-flex w-fit items-center justify-center text-muted-foreground group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col',\n      variant === 'default' && 'bg-muted',\n      variant === 'line' && 'gap-1 bg-transparent',\n      props.class,\n    )\"\n  >\n    <slot />\n  </TabsList>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { TabsListProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport type { TabsListVariants } from '.'\nimport { reactiveOmit } from '@vueuse/core'\nimport { TabsList } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { tabsListVariants } from '.'\n\nconst props = withDefaults(defineProps<TabsListProps & {\n  class?: HTMLAttributes['class']\n  variant?: TabsListVariants['variant']\n}>(), {\n  variant: 'default',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class', 'variant')\n</script>\n\n<template>\n  <TabsList\n    data-slot=\"tabs-list\"\n    :data-variant=\"variant\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn(tabsListVariants({ variant }), props.class)\"\n  >\n    <slot />\n  </TabsList>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "path": "styles/reka-luma/ui/tabs/index.ts",
-      "content": "export { default as Tabs } from './Tabs.vue'\nexport { default as TabsContent } from './TabsContent.vue'\nexport { default as TabsList } from './TabsList.vue'\nexport { default as TabsTrigger } from './TabsTrigger.vue'\n",
+      "content": "import type { VariantProps } from 'class-variance-authority'\nimport { cva } from 'class-variance-authority'\n\nexport { default as Tabs } from './Tabs.vue'\nexport { default as TabsContent } from './TabsContent.vue'\nexport { default as TabsList } from './TabsList.vue'\nexport { default as TabsTrigger } from './TabsTrigger.vue'\n\nexport const tabsListVariants = cva(\n  'rounded-full p-1 group-data-horizontal/tabs:h-9 group-data-vertical/tabs:rounded-2xl data-[variant=line]:rounded-none group/tabs-list inline-flex w-fit items-center justify-center text-muted-foreground group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col',\n  {\n    variants: {\n      variant: {\n        default: 'bg-muted',\n        line: 'gap-1 bg-transparent',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n)\n\nexport type TabsListVariants = VariantProps<typeof tabsListVariants>\n",
       "type": "registry:ui"
     }
   ],
