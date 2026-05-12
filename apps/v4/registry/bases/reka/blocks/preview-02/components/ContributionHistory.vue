@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/registry/bases/reka/ui/chart"
 import { VisAxis, VisGroupedBar, VisXYContainer } from "@unovis/vue"
-import { Badge } from "@/registry/bases/reka/ui/badge"
 import { Button } from "@/registry/bases/reka/ui/button"
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -49,11 +47,6 @@ const chartConfig = {
     <CardHeader>
       <CardTitle>Contribution History</CardTitle>
       <CardDescription>Last 6 months of activity</CardDescription>
-      <CardAction>
-        <Badge variant="secondary">
-          +12% vs last month
-        </Badge>
-      </CardAction>
     </CardHeader>
     <CardContent>
       <ChartContainer :config="chartConfig" class="h-[200px] w-full">

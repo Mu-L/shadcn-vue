@@ -241,6 +241,22 @@ export const PRESETS: Preset[] = [
     menuColor: "default",
     radius: "default",
   },
+  {
+    name: "reka-sera",
+    title: "Sera",
+    description: "Sera / Lucide / Noto Sans + Playfair Display",
+    base: "reka",
+    style: "sera",
+    baseColor: "taupe",
+    theme: "taupe",
+    iconLibrary: "lucide",
+    font: "noto-sans",
+    fontHeading: "playfair-display",
+    item: "Item",
+    menuAccent: "subtle",
+    menuColor: "default",
+    radius: "default",
+  },
 ]
 
 export function getThemesForBaseColor(baseColorName: string) {

@@ -111,7 +111,7 @@
     "ts-morph": "^27.0.2",
     "undici": "^7.16.0",
     "validate-npm-package-name": "catalog:",
-    "vue-metamorph": "3.3.3",
+    "vue-metamorph": "3.3.4",
     "zod": "catalog:",
     "zod-to-json-schema": "^3.25.0"
   },

@@ -67,7 +67,7 @@
     "rimraf": "^6.1.2",
     "shiki": "^3.19.0",
     "tsx": "catalog:",
-    "vue-metamorph": "3.3.3",
+    "vue-metamorph": "3.3.4",
     "vue-tsc": "catalog:",
     "wrangler": "^4.53.0"
   }

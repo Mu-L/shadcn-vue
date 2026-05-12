@@ -201,6 +201,7 @@ describe('default presets', () => {
     expect(names).toContain('lyra')
     expect(names).toContain('mira')
     expect(names).toContain('luma')
+    expect(names).toContain('sera')
   })
 
   it('each preset has a complete design system config', () => {
