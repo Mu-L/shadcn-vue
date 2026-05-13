@@ -40,6 +40,10 @@ const chartConfig = {
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
+
+// Hard-edged styles (lyra, sera) flatten the bar corners — mirrors shadcn-ui.
+const params = useDesignSystemSearchParams()
+const isRounded = computed(() => !["lyra", "sera"].includes(params.style.value))
 </script>
 
 <template>
@@ -55,7 +59,7 @@ const chartConfig = {
             :x="(d: Data) => d.index"
             :y="[(d: Data) => d.amount]"
             :color="[chartConfig.amount.color]"
-            :rounded-corners="6"
+            :rounded-corners="isRounded ? 6 : 0"
             :bar-padding="0.05"
           />
           <VisAxis

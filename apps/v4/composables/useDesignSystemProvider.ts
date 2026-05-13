@@ -70,8 +70,10 @@ export function useDesignSystemProvider() {
 
   const isReady = ref(false)
 
+  // Styles that hard-edge by design (no border-radius): mirrors shadcn-ui.
+  const RADIUS_LOCKED_STYLES = new Set(['lyra', 'sera'])
   const effectiveRadius = computed(() =>
-    style.value === 'lyra' ? 'none' : radius.value,
+    RADIUS_LOCKED_STYLES.has(style.value) ? 'none' : radius.value,
   )
 
   const selectedFont = computed(() =>
@@ -118,9 +120,9 @@ export function useDesignSystemProvider() {
     }
   })
 
-  // Force radius to "none" when style is "lyra".
+  // Force radius to "none" when the style hard-edges (lyra, sera).
   watch([style, radius], ([styleValue, radiusValue]) => {
-    if (styleValue === 'lyra' && radiusValue !== 'none') {
+    if (RADIUS_LOCKED_STYLES.has(styleValue) && radiusValue !== 'none') {
       radius.value = 'none' as typeof radius.value
     }
   })
