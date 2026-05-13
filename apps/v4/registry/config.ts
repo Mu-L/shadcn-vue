@@ -85,6 +85,12 @@ export const designSystemConfigSchema = z
       )
       .default("neutral"),
     theme: z.enum(THEMES.map(t => t.name) as [ThemeName, ...ThemeName[]]),
+    // Defaults to `theme` at preset-apply time (see PRESETS). Surfacing it on
+    // the schema lets style/preset pickers carry it alongside theme so that
+    // picking e.g. Sera switches the chart palette to taupe in lockstep.
+    chartColor: z
+      .enum(THEMES.map(t => t.name) as [ThemeName, ...ThemeName[]])
+      .optional(),
     font: z.enum(fontValues).default("inter"),
     fontHeading: z
       .enum(["inherit", ...fontValues] as [string, ...string[]])
@@ -153,6 +159,7 @@ export const PRESETS: Preset[] = [
     style: "vega",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "lucide",
     font: "inter",
     fontHeading: "inherit",
@@ -169,6 +176,7 @@ export const PRESETS: Preset[] = [
     style: "nova",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "hugeicons",
     font: "inter",
     fontHeading: "inherit",
@@ -185,6 +193,7 @@ export const PRESETS: Preset[] = [
     style: "maia",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "hugeicons",
     font: "figtree",
     fontHeading: "inherit",
@@ -201,6 +210,7 @@ export const PRESETS: Preset[] = [
     style: "lyra",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "hugeicons",
     font: "jetbrains-mono",
     fontHeading: "inherit",
@@ -217,6 +227,7 @@ export const PRESETS: Preset[] = [
     style: "mira",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "hugeicons",
     font: "inter",
     fontHeading: "inherit",
@@ -233,6 +244,7 @@ export const PRESETS: Preset[] = [
     style: "luma",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "lucide",
     font: "inter",
     fontHeading: "inherit",
@@ -249,6 +261,7 @@ export const PRESETS: Preset[] = [
     style: "sera",
     baseColor: "taupe",
     theme: "taupe",
+    chartColor: "taupe",
     iconLibrary: "lucide",
     font: "noto-sans",
     fontHeading: "playfair-display",

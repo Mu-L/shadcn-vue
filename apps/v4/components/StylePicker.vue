@@ -28,6 +28,7 @@ function handleStyleChange(value: unknown) {
 
   params.baseColor.value = preset.baseColor
   params.theme.value = preset.theme
+  params.chartColor.value = preset.chartColor ?? preset.theme
   params.iconLibrary.value = preset.iconLibrary
   params.font.value = preset.font
   params.fontHeading.value = preset.fontHeading
